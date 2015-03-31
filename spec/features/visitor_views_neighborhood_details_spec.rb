@@ -1,12 +1,12 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'visitor views neighborgood details', %Q(
+feature 'visitor views neighborgood details', %(
   As a viewer
   I want to view the details of a neighborhood
   So I can find out more about it.
 ) do
 
-  scenario 'visitor views homepage' do
+  scenario "visitor views homepage" do
     neighborhood = FactoryGirl.create(:neighborhood)
 
     visit neighborhood_path(neighborhood)

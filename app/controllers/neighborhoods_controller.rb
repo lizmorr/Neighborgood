@@ -1,6 +1,6 @@
 class NeighborhoodsController < ApplicationController
   def index
-    @neighborhoods = Neighborhood.all.limit(10)
+    @neighborhoods = Neighborhood.limit(10)
   end
 
   def show
@@ -16,6 +16,7 @@ class NeighborhoodsController < ApplicationController
     if @neighborhood.save
       redirect_to root_path, notice: "Neighborhood Added!"
     else
+      flash[:alert] = "Your neighborhood was not saved"
       render :new
     end
   end
