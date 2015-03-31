@@ -7,4 +7,10 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :neighborhood do
+    sequence(:name) { |n| "Neighborhood #{n}" }
+    location "North"
+    description "The best neighborhood."
+    user
+  end
 end
