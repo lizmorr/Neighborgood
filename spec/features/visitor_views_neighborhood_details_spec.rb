@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature 'visitor views neighborgood details', %(
+feature "visitor views neighborgood details", %(
   As a viewer
   I want to view the details of a neighborhood
   So I can find out more about it.
@@ -14,5 +14,4 @@ feature 'visitor views neighborgood details', %(
     expect(page).to have_content(neighborhood.location)
     expect(page).to have_content(neighborhood.description)
   end
-
 end
