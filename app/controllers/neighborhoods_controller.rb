@@ -9,6 +9,7 @@ class NeighborhoodsController < ApplicationController
 
   def new
     @neighborhood = Neighborhood.new
+    @errors = @neighborhood.errors
   end
 
   def create
@@ -33,7 +34,7 @@ class NeighborhoodsController < ApplicationController
       redirect_to neighborhood_path(@neighborhood),
         notice: "Neighborhood Edited!"
     else
-      flash[:alert] = "Your neighborhood was not saved"
+      flash[:alert] = "Something went wrong."
       render :edit
     end
   end

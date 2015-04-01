@@ -1,10 +1,4 @@
-<% if @neighborhood.errors.present? %>
-  <ul>
-    <% @neighborhood.errors.full_messages.each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'shared/errors' %>
 
 <%= form_for @neighborhood do |f| %>
   <%= f.label :name %>

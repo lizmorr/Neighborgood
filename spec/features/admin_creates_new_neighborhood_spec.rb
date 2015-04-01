@@ -12,7 +12,7 @@ feature "admin can create new neighborhood", %(
 
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
-    click_button 'Log in'
+    click_button "Log in"
 
     visit new_neighborhood_path
   end
@@ -28,7 +28,7 @@ feature "admin can create new neighborhood", %(
     expect(page).to have_content("East")
   end
 
-  scenario "user adds invalid new neighborhood" do
+  scenario "user attempts to add invalid neighborhood" do
     click_on "Submit"
 
     expect(page).to have_content("Your neighborhood was not saved")
