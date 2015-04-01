@@ -3,7 +3,7 @@
 <p><%= @neighborhood.description %></p>
 
 <% if @reviews %>
-  <%= render template: "reviews/index" %>
+  <%= render "reviews/index" %>
 <% end %>
 
-<%= render template: "reviews/new" %>
+<%= render "reviews/new" %>
