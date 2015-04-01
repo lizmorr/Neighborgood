@@ -30,8 +30,8 @@ class NeighborhoodsController < ApplicationController
     @neighborhood = Neighborhood.find(params[:id])
     if @neighborhood.update_attributes(neighborhood_params) &&
       current_user.id == @neighborhood.user_id
-        redirect_to neighborhood_path(@neighborhood),
-          notice: "Neighborhood Edited!"
+      redirect_to neighborhood_path(@neighborhood),
+        notice: "Neighborhood Edited!"
     else
       flash[:alert] = "Your neighborhood was not saved"
       render :edit
