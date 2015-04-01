@@ -1,3 +1,11 @@
+<% if @neighborhood.errors.present? %>
+  <ul>
+    <% @neighborhood.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @neighborhood do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>

@@ -13,6 +13,7 @@ class NeighborhoodsController < ApplicationController
 
   def create
     @neighborhood = Neighborhood.new(neighborhood_params)
+    @neighborhood.user_id = current_user.id
     if @neighborhood.save
       redirect_to root_path, notice: "Neighborhood Added!"
     else

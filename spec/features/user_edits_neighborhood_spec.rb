@@ -6,10 +6,13 @@ feature "user edits neighborhood", %(
   So I can correct errors or provide new information.
 ) do
 
-  scenario "user successfully edits neighborhood" do
+  before do
     neighborhood = FactoryGirl.create(:neighborhood)
 
     visit edit_neighborhood_path(neighborhood)
+  end
+
+  scenario "user successfully edits neighborhood" do
     fill_in "Name", with: "Uptown"
     select("West", from: "Location")
     fill_in "Description", with: "Super!"
@@ -22,7 +25,6 @@ feature "user edits neighborhood", %(
 
   scenario "user unsuccessfully edits neighborhood" do
     neighborhood = FactoryGirl.create(:neighborhood)
-
     visit edit_neighborhood_path(neighborhood)
     fill_in "Name", with: "Hi"
     fill_in "Description", with: "!"
