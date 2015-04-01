@@ -15,7 +15,7 @@ class NeighborhoodsController < ApplicationController
 
   def create
     @neighborhood = Neighborhood.new(neighborhood_params)
-    @neighborhood.user_id = current_user.id
+    @neighborhood.user = current_user
     if @neighborhood.save
       redirect_to root_path, notice: "Neighborhood Added!"
     else
@@ -30,7 +30,7 @@ class NeighborhoodsController < ApplicationController
   def update
     @neighborhood = Neighborhood.find(params[:id])
     if @neighborhood.update_attributes(neighborhood_params) &&
-        current_user.id == @neighborhood.user_id
+        current_user == @neighborhood.user
       redirect_to neighborhood_path(@neighborhood),
         notice: "Neighborhood Edited!"
     else
