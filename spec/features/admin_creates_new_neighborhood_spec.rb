@@ -12,7 +12,6 @@ feature "admin can create new neighborhood", %(
 
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
-
     click_button 'Log in'
 
     visit new_neighborhood_path

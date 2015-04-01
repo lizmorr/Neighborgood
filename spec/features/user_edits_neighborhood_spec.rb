@@ -7,8 +7,14 @@ feature "user edits neighborhood", %(
 ) do
 
   before do
-    neighborhood = FactoryGirl.create(:neighborhood)
+    user = FactoryGirl.create(:user)
+    visit new_user_session_path
 
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button 'Log in'
+
+    neighborhood = FactoryGirl.create(:neighborhood, user_id: user.id)
     visit edit_neighborhood_path(neighborhood)
   end
 
@@ -24,8 +30,6 @@ feature "user edits neighborhood", %(
   end
 
   scenario "user unsuccessfully edits neighborhood" do
-    neighborhood = FactoryGirl.create(:neighborhood)
-    visit edit_neighborhood_path(neighborhood)
     fill_in "Name", with: "Hi"
     fill_in "Description", with: "!"
     click_on "Submit"
