@@ -11,7 +11,6 @@ class NeighborhoodsController < ApplicationController
 
   def new
     @neighborhood = Neighborhood.new
-    @errors = @neighborhood.errors
   end
 
   def create
@@ -26,7 +25,6 @@ class NeighborhoodsController < ApplicationController
 
   def edit
     @neighborhood = Neighborhood.find(params[:id])
-    @errors = @neighborhood.errors
   end
 
   def update

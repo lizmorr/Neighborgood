@@ -2,4 +2,6 @@
 <p><%= @neighborhood.location %></p>
 <p><%= @neighborhood.description %></p>
 
-<%= link_to 'Edit Page', edit_neighborhood_path(@neighborhood) %>
+<% if current_user == @neighborhood.user %>
+  <%= link_to 'Edit Page', edit_neighborhood_path(@neighborhood) %>
+<% end %>
