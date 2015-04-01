@@ -10,12 +10,7 @@ feature "user reviews a neighborhood", %(
     user = FactoryGirl.create(:user)
     neighborhood = FactoryGirl.create(:neighborhood)
 
-    click_on "Sign In"
-
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-
-    click_on "Log in"
+    sign_in_as(user)
 
     visit neighborhood_path(neighborhood)
 
@@ -24,8 +19,34 @@ feature "user reviews a neighborhood", %(
 
     click_on "Add Review"
 
-    expect(page).to have_content("Review added successfully")
+    expect(page).to have_content("Review added successfully.")
     expect(page).to have_content("5")
     expect(page).to have_content("This neighborhood is amazing.")
+  end
+
+    scenario "authenticated user unsuccessfully reviews a neighborhood" do
+    user = FactoryGirl.create(:user)
+    neighborhood = FactoryGirl.create(:neighborhood)
+
+    sign_in_as(user)
+
+    visit neighborhood_path(neighborhood)
+
+    click_on "Add Review"
+
+    expect(page).to have_content("Review not added.")
+  end
+
+    scenario "viewer unsuccessfully reviews a neighborhood" do
+    neighborhood = FactoryGirl.create(:neighborhood)
+
+    visit neighborhood_path(neighborhood)
+
+    choose "5"
+    fill_in "Review", with: "This neighborhood is amazing."
+
+    click_on "Add Review"
+
+    expect(page).to have_content("You must be signed in to post a review.")
   end
 end

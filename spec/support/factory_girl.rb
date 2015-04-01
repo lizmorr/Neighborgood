@@ -13,4 +13,12 @@ FactoryGirl.define do
     description "The best neighborhood."
     user
   end
+
+  factory :review do
+    rating 5
+    description "This is a fantastic place!"
+    user
+    neighborhood
+  end
+
 end
