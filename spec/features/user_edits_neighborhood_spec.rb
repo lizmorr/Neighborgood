@@ -36,6 +36,6 @@ feature "user edits neighborhood", %(
 
     expect(page).to have_content("Your neighborhood was not saved")
     expect(page).to have_content("Name is too short (minimum is 4 characters)")
-    expect(page).to have_content("Description is too short (minimum is 2 characters)")
+    expect(page).to have_content("Description is too short")
   end
 end
