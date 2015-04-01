@@ -1,0 +1,21 @@
+<% if @neighborhood.errors.present? %>
+  <ul>
+    <% @neighborhood.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+<%= form_for @neighborhood do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :location %>
+  <%= f.select :location,
+      Locations: Neighborhood::LOCATIONS %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit "Submit" %>
+<% end %>
