@@ -24,7 +24,7 @@ feature "user reviews a neighborhood", %(
     expect(page).to have_content("This neighborhood.")
   end
 
-    scenario "authenticated user unsuccessfully reviews a neighborhood" do
+  scenario "authenticated user unsuccessfully reviews a neighborhood" do
     user = FactoryGirl.create(:user)
     neighborhood = FactoryGirl.create(:neighborhood)
 
@@ -37,7 +37,7 @@ feature "user reviews a neighborhood", %(
     expect(page).to have_content("Review not added.")
   end
 
-    scenario "viewer unsuccessfully reviews a neighborhood" do
+  scenario "viewer unsuccessfully reviews a neighborhood" do
     neighborhood = FactoryGirl.create(:neighborhood)
 
     visit neighborhood_path(neighborhood)

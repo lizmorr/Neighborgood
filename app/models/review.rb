@@ -1,5 +1,5 @@
 class Review < ActiveRecord::Base
-  RATING = [1,2,3,4,5]
+  RATING = [1, 2, 3, 4, 5]
 
   belongs_to :neighborhood
   belongs_to :user

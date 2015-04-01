@@ -8,13 +8,16 @@ feature "user views all reviews for neighborhood", %(
 
   scenario "reviews are sorted by create time" do
     neighborhood = FactoryGirl.create(:neighborhood)
-    old_review = FactoryGirl.create(:review, neighborhood: neighborhood, created_at: 5.days.ago)
-    new_review = FactoryGirl.create(:review, description: "So cool", neighborhood: neighborhood)
+    old_review = FactoryGirl.create(:review,
+      neighborhood: neighborhood, created_at: 5.days.ago)
+    new_review = FactoryGirl.create(:review,
+      description: "So cool", neighborhood: neighborhood)
 
     visit neighborhood_path(neighborhood)
 
 
-    expect(page.body.index(old_review.description) > page.body.index(new_review.description))
+    expect(page.body.index(old_review.description) >
+      page.body.index(new_review.description))
   end
 
   scenario "viewer views reviews of neighborhood" do
