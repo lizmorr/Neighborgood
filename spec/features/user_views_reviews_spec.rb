@@ -15,7 +15,6 @@ feature "user views all reviews for neighborhood", %(
 
     visit neighborhood_path(neighborhood)
 
-
     expect(page.body.index(old_review.description) >
       page.body.index(new_review.description))
   end
