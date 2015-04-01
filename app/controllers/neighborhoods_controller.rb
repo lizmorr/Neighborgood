@@ -1,4 +1,6 @@
 class NeighborhoodsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @neighborhoods = Neighborhood.limit(10)
   end
