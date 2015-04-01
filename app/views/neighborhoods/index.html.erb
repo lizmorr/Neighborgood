@@ -5,4 +5,6 @@
   <p><%= neighborhood.location %></p>
 <% end %>
 
-<%= link_to 'New Neighborhood', new_neighborhood_path %>
+<% if current_user %>
+  <%= link_to 'New Neighborhood', new_neighborhood_path %>
+<% end %>

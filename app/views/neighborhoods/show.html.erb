@@ -1,3 +1,7 @@
 <h1><%= @neighborhood.name %></h1>
 <p><%= @neighborhood.location %></p>
 <p><%= @neighborhood.description %></p>
+
+<% if current_user.id == @neighborhood.user_id %>
+  <p><% link_to 'Edit Page' edit_neighborhood_path %></p>
+<% end %>
