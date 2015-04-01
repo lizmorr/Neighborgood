@@ -2,4 +2,8 @@
 <p><%= @neighborhood.location %></p>
 <p><%= @neighborhood.description %></p>
 
-<%= render template: "./reviews/index" %>
+<% if @reviews %>
+  <%= render template: "reviews/index" %>
+<% end %>
+
+<%= render template: "reviews/new" %>

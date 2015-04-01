@@ -1,4 +1,4 @@
-<% @reviews.order(created_at: :desc).each do |review| %>
+<% @reviews.each do |review| %>
   <div class="review" id="<%= review.id %>">
     <%= review.rating %>
     <%= review.description %>

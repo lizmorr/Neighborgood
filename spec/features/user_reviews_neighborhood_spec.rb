@@ -15,13 +15,13 @@ feature "user reviews a neighborhood", %(
     visit neighborhood_path(neighborhood)
 
     choose "5"
-    fill_in "Review", with: "This neighborhood is amazing."
+    fill_in "Review", with: "This neighborhood."
 
     click_on "Add Review"
 
     expect(page).to have_content("Review added successfully.")
     expect(page).to have_content("5")
-    expect(page).to have_content("This neighborhood is amazing.")
+    expect(page).to have_content("This neighborhood.")
   end
 
     scenario "authenticated user unsuccessfully reviews a neighborhood" do
@@ -43,10 +43,11 @@ feature "user reviews a neighborhood", %(
     visit neighborhood_path(neighborhood)
 
     choose "5"
-    fill_in "Review", with: "This neighborhood is amazing."
+    fill_in "Review", with: "This neighborhood."
 
     click_on "Add Review"
 
-    expect(page).to have_content("You must be signed in to post a review.")
+    expect(page).to have_content("You need to sign in or sign up before\
+     continuing.")
   end
 end

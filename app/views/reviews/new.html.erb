@@ -1,0 +1,12 @@
+<%= form_for [@neighborhood, @review] do |f| %>
+  <%= f.label :rating %>
+  <% Review::RATING.each do |rating| %>
+    <%= f.radio_button(:rating, rating) %>
+    <%= f.label("rating_#{rating}",rating) %>
+  <% end %>
+
+  <%= f.label :description, "Review" %>
+  <%= f.text_area :description %>
+
+  <%= f.submit "Add Review" %>
+<% end %>
