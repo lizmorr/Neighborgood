@@ -34,7 +34,6 @@ feature "user edits neighborhood", %(
     fill_in "Description", with: "!"
     click_on "Submit"
 
-    expect(page).to have_content("Something went wrong.")
     expect(page).to have_content("Name is too short (minimum is 4 characters)")
     expect(page).to have_content("Description is too short")
   end

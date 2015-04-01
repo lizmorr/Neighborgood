@@ -20,13 +20,13 @@ class NeighborhoodsController < ApplicationController
     if @neighborhood.save
       redirect_to root_path, notice: "Neighborhood Added!"
     else
-      flash[:alert] = "Your neighborhood was not saved"
       render :new
     end
   end
 
   def edit
     @neighborhood = Neighborhood.find(params[:id])
+    @errors = @neighborhood.errors
   end
 
   def update
@@ -36,7 +36,6 @@ class NeighborhoodsController < ApplicationController
       redirect_to neighborhood_path(@neighborhood),
         notice: "Neighborhood Edited!"
     else
-      flash[:alert] = "Something went wrong."
       render :edit
     end
   end

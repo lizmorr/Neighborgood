@@ -31,7 +31,6 @@ feature "admin can create new neighborhood", %(
   scenario "user attempts to add invalid neighborhood" do
     click_on "Submit"
 
-    expect(page).to have_content("Your neighborhood was not saved")
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Name is too short (minimum is 4 characters)")
   end
