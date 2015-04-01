@@ -1,5 +1,7 @@
-<% @reviews.each do |review| %>
-  <%= review.rating %>
-  <%= review.description %>
-  <%= review.user.email %>
+<% @reviews.order(created_at: :desc).each do |review| %>
+  <div class="review" id="<%= review.id %>">
+    <%= review.rating %>
+    <%= review.description %>
+    <%= review.user.email %>
+  </div>
 <% end %>
