@@ -26,6 +26,7 @@ class ReviewsController < ApplicationController
       redirect_to neighborhood_path(@neighborhood)
     else
       flash[:alert] = "Review not added."
+      @errors = @review.errors
       render "neighborhoods/show"
     end
   end
