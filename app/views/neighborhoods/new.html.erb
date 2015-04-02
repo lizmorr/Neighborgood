@@ -6,7 +6,8 @@
 
   <%= f.label :location %>
   <%= f.select :location,
-      Locations: Neighborhood::LOCATIONS %>
+      Neighborhood::LOCATIONS,
+      :include_blank => "Please Choose A Location" %>
 
   <%= f.label :description %>
   <%= f.text_area :description %>
