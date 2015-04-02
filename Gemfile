@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+ruby '2.1.5'
+
 gem 'rails', '4.2.1'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -24,3 +26,5 @@ end
 group :test do
   gem 'coveralls', require: false
 end
+
+gem 'rails_12factor', group: :production
