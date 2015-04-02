@@ -3,7 +3,8 @@ class Review < ActiveRecord::Base
 
   belongs_to :neighborhood
   belongs_to :user
-
+  has_many :votes
+  
   validates :rating, presence: true, inclusion: { in: RATING }
   validates :description, presence: true, length: { maximum: 20 }
   validates :user, presence: true
