@@ -46,4 +46,17 @@ feature "user edits review", %(
     expect(page).to have_content("Review not updated!")
   end
 
+  scenario "non-original reviwer cannot see edit review link" do
+    original_user = FactoryGirl.create(:user)
+    random_user = FactoryGirl.create(:user)
+    neighborhood = FactoryGirl.create(:neighborhood)
+    review = FactoryGirl.create(:review, user: original_user, neighborhood: neighborhood)
+
+    sign_in_as(random_user)
+
+    visit neighborhood_path(neighborhood)
+
+    expect(page).to_not have_content("Edit Review")
+
+  end
 end
