@@ -4,4 +4,7 @@
     <%= review.description %>
     <%= review.user.email %>
   </div>
+  <% if review.user == current_user %>
+    <%= link_to "Edit Review", edit_neighborhood_review_path(review.neighborhood, review)  %>
+  <% end %>
 <% end %>
