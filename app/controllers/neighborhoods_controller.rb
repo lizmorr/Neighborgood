@@ -13,6 +13,7 @@ class NeighborhoodsController < ApplicationController
 
   def new
     @neighborhood = Neighborhood.new
+    @errors = @neighborhood.errors
   end
 
   def create
@@ -21,12 +22,14 @@ class NeighborhoodsController < ApplicationController
     if @neighborhood.save
       redirect_to root_path, notice: "Neighborhood Added!"
     else
+      @errors = @neighborhood.errors
       render :new
     end
   end
 
   def edit
     @neighborhood = Neighborhood.find(params[:id])
+    @errors = @neighborhood.errors
   end
 
   def update
@@ -36,6 +39,7 @@ class NeighborhoodsController < ApplicationController
       redirect_to neighborhood_path(@neighborhood),
         notice: "Neighborhood Edited!"
     else
+      @errors = @neighborhood.errors
       render :edit
     end
   end
