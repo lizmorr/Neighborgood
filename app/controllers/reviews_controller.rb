@@ -11,6 +11,11 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
+  def edit
+    @neighborhood = Neighborhood.find(params[:neighborhood_id])
+    @review = Review.find(params[:id])
+  end
+
   def create
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
     @review = Review.create(review_params)
@@ -24,6 +29,21 @@ class ReviewsController < ApplicationController
       @errors = @review.errors
       render "neighborhoods/show"
     end
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      flash[:notice] = "Review updated!"
+      redirect_to neighborhood_path(@review.neighborhood_id)
+    else
+      flash[:alert] = "Review not updated!"
+      @errors = @review.errors
+      redirect_to edit_neighborhood_review_path(@review.neighborhood, @review)
+    end
+  end
+
+  def destroy
   end
 
   protected
