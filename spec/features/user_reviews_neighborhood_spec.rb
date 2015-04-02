@@ -39,7 +39,7 @@ feature "user reviews a neighborhood", %(
     expect(page).to have_content("Description can't be blank")
   end
 
-  scenario "authenticated user submits invalid description and fails" do
+  scenario "authenticated user submits invalid descriptionAAdd and fails" do
     user = FactoryGirl.create(:user)
     neighborhood = FactoryGirl.create(:neighborhood)
 
@@ -48,7 +48,7 @@ feature "user reviews a neighborhood", %(
     visit neighborhood_path(neighborhood)
 
     choose "5"
-    fill_in "Review", with: "x"*22
+    fill_in "Review", with: "x" * 22
 
     click_on "Add Review"
 
