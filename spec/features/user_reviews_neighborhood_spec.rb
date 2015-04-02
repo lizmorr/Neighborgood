@@ -34,7 +34,6 @@ feature "user reviews a neighborhood", %(
 
     click_on "Add Review"
 
-    expect(page).to have_content("Review not added.")
     expect(page).to have_content("Rating can't be blank")
     expect(page).to have_content("Description can't be blank")
   end
@@ -52,7 +51,6 @@ feature "user reviews a neighborhood", %(
 
     click_on "Add Review"
 
-    expect(page).to have_content("Review not added.")
     expect(page).to have_content("Description is too long")
   end
 

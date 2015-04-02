@@ -21,7 +21,6 @@ feature "user edits review", %(
     fill_in "Review", with: "This sucks."
     click_on "Edit Review"
 
-    expect(page).to have_content("Review updated!")
     expect(page).to have_content("2")
     expect(page).to have_content("This sucks.")
     expect(page).to_not have_css("\##{review.id}", text: review.rating)
@@ -43,7 +42,7 @@ feature "user edits review", %(
     fill_in "Review", with: ""
     click_on "Edit Review"
 
-    expect(page).to have_content("Review not updated!")
+    expect(page).to have_content("Description can't be blank")
   end
 
   scenario "non-original reviwer cannot see edit review link" do
@@ -59,6 +58,5 @@ feature "user edits review", %(
     visit neighborhood_path(neighborhood)
 
     expect(page).to_not have_content("Edit Review")
-
   end
 end
