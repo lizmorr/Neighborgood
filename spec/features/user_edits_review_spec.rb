@@ -50,7 +50,9 @@ feature "user edits review", %(
     original_user = FactoryGirl.create(:user)
     random_user = FactoryGirl.create(:user)
     neighborhood = FactoryGirl.create(:neighborhood)
-    review = FactoryGirl.create(:review, user: original_user, neighborhood: neighborhood)
+    review = FactoryGirl.create(
+      :review, user: original_user, neighborhood: neighborhood
+    )
 
     sign_in_as(random_user)
 
