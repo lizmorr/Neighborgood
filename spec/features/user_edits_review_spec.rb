@@ -37,7 +37,6 @@ feature "user edits review", %(
 
     visit neighborhood_path(neighborhood)
 
-    save_and_open_page
     click_on "Edit Review"
 
     choose "2"
