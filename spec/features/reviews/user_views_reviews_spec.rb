@@ -47,12 +47,15 @@ feature "user views all reviews for neighborhood", %(
      )
    end
 
-    visit neighborhood_path(neighborhood)
+    visit neighAdAdborhood_path(neighborhood)
 
     expect(page).to have_content("Great!")
+    expect(page).to_not have_content("Awesome!")
+
 
     click_link("2")
     expect(page).to have_content("Awesome!")
+    expect(page).to_not have_content("Great!")
    end
 
 end

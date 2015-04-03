@@ -15,18 +15,20 @@ feature 'visitor views neighborgood homepage', %Q(
   end
 
   scenario 'visitor sees 10 neighborhoods per page' do
-   10.times do |n|
-     FactoryGirl.create(:neighborhood, name: "Hip#{n}")
-   end
-   10.times do |n|
-     FactoryGirl.create(:neighborhood, name: "Pretty#{n}")
-   end
+    10.times do |n|
+      FactoryGirl.create(:neighborhood, name: "Hip#{n}")
+    end
+    10.times do |n|
+      FactoryGirl.create(:neighborhood, name: "Pretty#{n}")
+    end
 
-  visit root_path
-  expect(page).to have_content("Hip")
+    visit root_path
+    expect(page).to have_content("Hip")
+    expect(page).to_not have_content("Pretty")
 
-  click_link("2")
-  expect(page).to have_content("Pretty")
- end
+    click_link("2")
+    expect(page).to have_content("Pretty")
+    expect(page).to_not have_content("Hip")
+  end
 
 end

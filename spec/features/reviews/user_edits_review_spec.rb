@@ -25,7 +25,7 @@ feature "user edits review", %(
       expect(page).to have_content("2")
       expect(page).to_not have_content(review.rating)
     end
-    within("\#id_#{review.id}") do    
+    within("\#id_#{review.id}") do
       expect(page).to have_content("This sucks.")
       expect(page).to_not have_content(review.description)
     end
