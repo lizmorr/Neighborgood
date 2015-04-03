@@ -21,10 +21,14 @@ feature "user edits review", %(
     fill_in "Review", with: "This sucks."
     click_on "Edit Review"
 
-    expect(page).to have_content("2")
-    expect(page).to have_content("This sucks.")
-    expect(page).to_not have_css("\#id_#{review.id}", text: review.rating)
-    expect(page).to_not have_content(review.description)
+    within("\#id_#{review.id} .rating") do
+      expect(page).to have_content("2")
+      expect(page).to_not have_content(review.rating)
+    end
+    within("\#id_#{review.id}") do
+      expect(page).to have_content("This sucks.")
+      expect(page).to_not have_content(review.description)
+    end
   end
 
   scenario "original reviwer unsuccessfully edits review" do

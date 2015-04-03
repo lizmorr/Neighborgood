@@ -1,5 +1,6 @@
 <h1>Neighborhoods of Boston</h1>
 
+<%= paginate @neighborhoods %>
 <% @neighborhoods.each do |neighborhood| %>
   <h2><%= link_to neighborhood.name, neighborhood_path(neighborhood) %></h2>
   <p><%= neighborhood.location %></p>
