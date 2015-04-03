@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, except: [:index]
 
   def index
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
 
   def edit
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
-    @review = Review.find(params[:id])
+    @review = @neighborhood.reviews.find(params[:id])
   end
 
   def create

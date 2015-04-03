@@ -8,4 +8,8 @@ class Review < ActiveRecord::Base
   validates :description, presence: true, length: { maximum: 20 }
   validates :user, presence: true
   validates :neighborhood, presence: true
+
+  def editable_by?(user)
+    user == self.user
+  end
 end
