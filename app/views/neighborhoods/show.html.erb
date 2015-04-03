@@ -6,8 +6,6 @@
   <%= link_to 'Edit Page', edit_neighborhood_path(@neighborhood) %>
 <% end %>
 
-<% if @reviews %>
-  <%= render "reviews/index" %>
-<% end %>
+<%= render "reviews/index" if @reviews %>
 
 <%= render "reviews/new" %>
