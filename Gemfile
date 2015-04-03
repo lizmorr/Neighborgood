@@ -7,6 +7,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'devise'
 gem 'foundation-rails'
+gem 'kaminari'
 
 
 group :development, :test do
