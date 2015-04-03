@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'visitor views neighborgood homepage', %Q(
+feature 'visitor views neighborgood homepage', %(
   As a viewer
   I want to view a list of neighborhoods in Boston
   So that I can pick a neighborhood to review

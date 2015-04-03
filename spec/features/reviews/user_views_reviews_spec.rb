@@ -32,7 +32,7 @@ feature "user views all reviews for neighborhood", %(
 
   scenario 'visitor sees 25 reviews per page' do
    neighborhood = FactoryGirl.create(:neighborhood)
-   25.times do |n|
+   25.times do
      FactoryGirl.create(
        :review,
        description: "Awesome!",
@@ -40,22 +40,18 @@ feature "user views all reviews for neighborhood", %(
        neighborhood: neighborhood
       )
    end
-   25.times do |n|
+   25.times do
      FactoryGirl.create(:review,
        description: "Great!",
        neighborhood: neighborhood
      )
    end
+   visit neighborhood_path(neighborhood)
+   expect(page).to have_content("Great!")
+   expect(page).to_not have_content("Awesome!")
 
-    visit neighAdAdborhood_path(neighborhood)
-
-    expect(page).to have_content("Great!")
-    expect(page).to_not have_content("Awesome!")
-
-
-    click_link("2")
-    expect(page).to have_content("Awesome!")
-    expect(page).to_not have_content("Great!")
-   end
-
+   click_link("2")
+   expect(page).to have_content("Awesome!")
+   expect(page).to_not have_content("Great!")
+  end
 end
