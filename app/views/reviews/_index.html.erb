@@ -1,10 +1,11 @@
 <% @reviews.each do |review| %>
-  <div class="review" id="<%= review.id %>">
+  <div class="review" id="id_<%= review.id %>">
     <%= review.rating %>
     <%= review.description %>
     <%= review.user.email %>
   </div>
   <% if review.user == current_user %>
     <%= link_to "Edit Review", edit_neighborhood_review_path(review.neighborhood, review)  %>
+    <%= link_to "Delete", neighborhood_review_path(review.neighborhood, review), method: :delete %>
   <% end %>
 <% end %>
