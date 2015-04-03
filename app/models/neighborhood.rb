@@ -7,4 +7,8 @@ class Neighborhood < ActiveRecord::Base
   validates :location, presence: true, inclusion: { in: LOCATIONS }
   validates :description, length: { in: 2..40 }, allow_blank: true
   validates :user, presence: true
+
+  def editable_by?(user)
+    user == self.user
+  end
 end

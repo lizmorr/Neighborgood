@@ -32,8 +32,8 @@ class NeighborhoodsController < ApplicationController
 
   def update
     @neighborhood = Neighborhood.find(params[:id])
-    if @neighborhood.update_attributes(neighborhood_params) &&
-        current_user == @neighborhood.user
+    if @neighborhood.editable_by?(current_user) &&
+        @neighborhood.update_attributes(neighborhood_params)
       redirect_to neighborhood_path(@neighborhood),
         notice: "Neighborhood Edited!"
     else
