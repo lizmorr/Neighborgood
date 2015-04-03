@@ -1,5 +1,6 @@
 class Review < ActiveRecord::Base
   RATING = [1, 2, 3, 4, 5]
+  @score = 0
 
   belongs_to :neighborhood
   belongs_to :user
@@ -10,11 +11,12 @@ class Review < ActiveRecord::Base
   validates :user, presence: true
   validates :neighborhood, presence: true
 
+
   def voted_on_by?(user)
-    votes.find_by(user_id: user_id)
+    votes.find_by(user_id: user)
   end
 
-  def self.sum(score)
-
+  def total_votes
+    votes.sum(:value)
   end
 end

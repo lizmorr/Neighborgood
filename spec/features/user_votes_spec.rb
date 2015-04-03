@@ -21,7 +21,7 @@ feature "user can upvote a review", %(
 
     first('.review').click_on "Upvote"
 
-    expect(page).to have_content("Upvoted!")
+    expect(page).to have_content("Success!")
     expect(page).to have_content("Votes: 1")
     expect(page).to_not have_content("Upvote")
   end
@@ -37,14 +37,14 @@ feature "user can upvote a review", %(
     click_button "Log in"
 
     neighborhood = FactoryGirl.create(:neighborhood)
-    review = FactoryGirl.create(:review, neighborhood: neighborhood, user: user, votes: 1)
+    review = FactoryGirl.create(:review, neighborhood: neighborhood, user: user)
 
     visit neighborhood_path(neighborhood)
 
     first('.review').click_on "Downvote"
 
-    expect(page).to have_content("Downvoted!")
-    expect(page).to have_content("Votes: 0")
+    expect(page).to have_content("Success!")
+    expect(page).to have_content("Votes: -1")
     expect(page).to_not have_content("Downvote")
   end
 end
