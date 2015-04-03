@@ -7,11 +7,11 @@ class NeighborhoodsController < ApplicationController
 
   def show
     @neighborhood = Neighborhood.find(params[:id])
-    @reviews = @neighborhood
-      .reviews
-      .order(created_at: :desc)
-      .page(params[:page])
-      .per(25)
+    @reviews = @neighborhood.
+      reviews.
+      order(created_at: :desc).
+      page(params[:page]).
+      per(25)
     @review = Review.new
   end
 
