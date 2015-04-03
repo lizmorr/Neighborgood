@@ -1,6 +1,9 @@
+<%= paginate @reviews %>
 <% @reviews.each do |review| %>
   <div class="review" id="id_<%= review.id %>">
-    <%= review.rating %>
+    <div class="rating">
+      <%= review.rating %>
+    </div>
     <%= review.description %>
     <%= review.user.email %>
   </div>

@@ -14,4 +14,19 @@ feature 'visitor views neighborgood homepage', %Q(
     expect(page).to have_content(neighborhood.location)
   end
 
+  scenario 'visitor sees 10 neighborhoods per page' do
+   10.times do |n|
+     FactoryGirl.create(:neighborhood, name: "Hip#{n}")
+   end
+   10.times do |n|
+     FactoryGirl.create(:neighborhood, name: "Pretty#{n}")
+   end
+
+  visit root_path
+  expect(page).to have_content("Hip")
+
+  click_link("2")
+  expect(page).to have_content("Pretty")
+ end
+
 end
