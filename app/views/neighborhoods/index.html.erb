@@ -10,14 +10,12 @@
   <% @neighborhoods.each do |neighborhood| %>
     <div class="large-4 columns">
       <div class="panel">
-        <p>
           <h3><%= link_to neighborhood.name, neighborhood_path(neighborhood) %></h3>
-          <p><%= neighborhood.location %></p>
-        </p>
+          <%= neighborhood.location.upcase %>
+          <%= image_tag neighborhood.image.url, :size => "300x300"  %>
       </div>
     </div>
   <% end %>
-
 </div>
 
 <% if current_user %>
