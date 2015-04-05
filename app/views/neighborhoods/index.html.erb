@@ -1,10 +1,24 @@
-<h1>Neighborhoods of Boston</h1>
+<fieldset class="tagline">
+  <div class="bg"></div>
+  <div class="neigh"><h1>LOVE YOUR</h1></div>
+  <div class="hood"><h1>NEIGHBORHOOD</h1></div>
+</fieldset>
 
-<%= paginate @neighborhoods %>
-<% @neighborhoods.each do |neighborhood| %>
-  <h2><%= link_to neighborhood.name, neighborhood_path(neighborhood) %></h2>
-  <p><%= neighborhood.location %></p>
-<% end %>
+<div class="row">
+
+  <%= paginate @neighborhoods %>
+  <% @neighborhoods.each do |neighborhood| %>
+    <div class="large-4 columns">
+      <div class="panel">
+        <p>
+          <h3><%= link_to neighborhood.name, neighborhood_path(neighborhood) %></h3>
+          <p><%= neighborhood.location %></p>
+        </p>
+      </div>
+    </div>
+  <% end %>
+
+</div>
 
 <% if current_user %>
   <%= link_to 'New Neighborhood', new_neighborhood_path %>

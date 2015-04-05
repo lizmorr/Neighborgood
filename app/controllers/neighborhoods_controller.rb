@@ -2,7 +2,7 @@ class NeighborhoodsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @neighborhoods = Neighborhood.page(params[:page]).per(10)
+    @neighborhoods = Neighborhood.order(:name).page(params[:page]).per(10)
   end
 
   def show
