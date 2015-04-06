@@ -38,6 +38,12 @@ feature "admin can create new neighborhood", %(
     user = FactoryGirl.create(:user)
     sign_in_as(user)
 
-    expect(page).to_not have_content("New Neighborhood")
+    visit new_admin_neighborhood_path
+    expect(page).to have_content("You don't have access to this page!")
+  end
+
+  scenario "visitor attempts to add neighborhood" do
+    visit new_admin_neighborhood_path
+    expect(page).to have_content("You don't have access to this page!")
   end
 end

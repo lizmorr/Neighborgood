@@ -10,7 +10,7 @@
   <% if review.editable_by?(current_user) %>
     <%= link_to "Edit Review", edit_neighborhood_review_path(review.neighborhood, review)  %>
   <% end %>
-  <% if review.editable_by?(current_user) || (!current_user.nil? && current_user.admin?) %>
+  <% if review.editable_by?(current_user) || current_user.try(:admin?) %>
     <%= link_to "Delete Review", neighborhood_review_path(review.neighborhood, review), method: :delete %>
   <% end %>
 <% end %>

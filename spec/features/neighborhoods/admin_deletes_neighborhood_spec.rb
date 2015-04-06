@@ -11,7 +11,7 @@ feature "admin can delete new neighborhood", %(
     sign_in_as(admin)
 
     neighborhood = FactoryGirl.create(:neighborhood)
-    visit neighborhood_path(neighborhood)
+    visit admin_neighborhoods_path
 
     click_on "Delete this Neighborhood"
     expect(page).to have_content("Neighborhood has been deleted")

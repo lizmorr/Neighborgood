@@ -1,23 +1,16 @@
 module Admin
   class NeighborhoodsController < ApplicationController
-    before_action :authenticate_user!
 
-    # def index
-    #   @neighborhoods = Neighborhood.page(params[:page]).per(10)
-    # end
-
-    # def show
-    #   @neighborhood = Neighborhood.find(params[:id])
-    #   @reviews = @neighborhood.
-    #     reviews.
-    #     order(created_at: :desc).
-    #     page(params[:page]).
-    #     per(25)
-    #   @review = Review.new
-    # end
+    def index
+      @neighborhoods = Neighborhood.page(params[:page]).per(10)
+    end
 
     def new
-      @neighborhood = Neighborhood.new
+      if current_user.try(:admin?)
+        @neighborhood = Neighborhood.new
+      else
+        redirect_to neighborhoods_path, notice: "You don't have access to this page!"
+      end
     end
 
     def create
@@ -31,28 +24,12 @@ module Admin
       end
     end
 
-    # def edit
-    #   @neighborhood = Neighborhood.find(params[:id])
-    # end
-    #
-    # def update
-    #   @neighborhood = Neighborhood.find(params[:id])
-    #   if @neighborhood.editable_by?(current_user) &&
-    #       @neighborhood.update_attributes(neighborhood_params)
-    #     redirect_to neighborhood_path(@neighborhood),
-    #       notice: "Neighborhood Edited!"
-    #   else
-    #     flash[:alert] = @neighborhood.errors.full_messages.join("\n")
-    #     render :edit
-    #   end
-    # end
-
     def destroy
       @neighborhood = Neighborhood.find(params[:id])
       if current_user.admin?
         @neighborhood.destroy
         flash[:notice] = "Neighborhood has been deleted"
-        redirect_to neighborhoods_path
+        redirect_to admin_neighborhoods_path
       end
     end
 

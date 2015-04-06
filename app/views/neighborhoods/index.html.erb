@@ -5,7 +5,3 @@
   <h2><%= link_to neighborhood.name, neighborhood_path(neighborhood) %></h2>
   <p><%= neighborhood.location %></p>
 <% end %>
-
-<% if !current_user.nil? && current_user.admin? %>
-  <%= link_to "New Neighborhood", new_admin_neighborhood_path %>
-<% end %>
