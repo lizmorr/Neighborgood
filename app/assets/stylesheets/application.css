@@ -10,97 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  *= require foundation_and_overrides
+ *= require_self
+ *= require_tree .
 
  */
 
 
-@import url(http://fonts.googleapis.com/css?family=Pacifico);
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
-
-nav.top-bar {
-  background:rgba(0,0,0,0.5);
-  background: #FFF;
-}
-
-.top-bar ul li h1 a {
-  font-family: Pacifico;
-  font-size: 1.4em;
-  color: #ff69b4 !important;
-}
-
-.top-bar .right li {
-  font-family: Pacifico;
-  font-size: 1em;
-  display: inline-block;
-  padding-right: 15px;
-  padding-top: 10px;
-}
-
-.top-bar .right li a {
- color: #ff69b4 !important;
-}
-
-nav.top-bar ul.right li a:hover {
-  background-color: none !important;
-  background: none !important;
-  text-decoration: none;
-}
-
-fieldset.tagline {
-  padding:50px;
-  border: none;
-  margin: 0rem;
-}
-
-.neigh h1 {
-  font-family: Lato;
-  color: #000;
-  font-size: 6em;
-  text-align: center;
-}
-
-.hood h1 {
-  font-family: Lato;
-  color: #000;
-  font-size: 6em;
-  text-align: center;
-  font-weight: 300;
-  margin-top: -40px;
-}
-
-.row .large-4 {
-  display: inline-block;
-}
-
-.row .panel {
-  padding: 0;
-  border: none;
-  background: #FFFFFF;
-}
-.row .panel img {
-  max-width: 100%;
-  max-height: 100%;
-  border: 0;
-}
-
-.row .panel h3 {
-  margin: -5px;
-}
-
-.row .panel h3 a {
-  font-family: Pacifico;
-  display: left;
-  text-align: center;
-  color: #ff69b4;
-}
-
-.row .panel {
-  font-family: Lato;
-  display: left;
-  text-align: center;
-}
 
 
