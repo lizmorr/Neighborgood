@@ -1,6 +1,5 @@
 class Review < ActiveRecord::Base
   RATING = [1, 2, 3, 4, 5]
-  @score = 0
 
   belongs_to :neighborhood
   belongs_to :user
@@ -27,7 +26,7 @@ class Review < ActiveRecord::Base
     votes.find_by(user_id: user, value: -1)
   end
 
-  def total_votes(score)
+  def total_votes
     votes.sum(:value)
   end
 end
