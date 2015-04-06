@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150406201436) do
     t.integer  "user_id",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   add_index "neighborhoods", ["name"], name: "index_neighborhoods_on_name", unique: true, using: :btree
