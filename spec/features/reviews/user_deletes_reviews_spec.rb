@@ -11,7 +11,7 @@ feature "user can delete reviews", %(
     user = FactoryGirl.create(:user)
     review = FactoryGirl.create(:review, user: user, neighborhood: neighborhood)
     FactoryGirl.create(:review, neighborhood: neighborhood, rating: 3,
-      description: "Yo.")
+    description: "Yo.")
 
     visit new_user_session_path
     sign_in_as(user)
