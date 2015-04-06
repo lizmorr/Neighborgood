@@ -1,10 +1,13 @@
+<%= paginate @reviews %>
 <% @reviews.each do |review| %>
   <div class="review" id="id_<%= review.id %>">
-    <%= review.rating %>
+    <div class="rating">
+      <%= review.rating %>
+    </div>
     <%= review.description %>
     <%= review.user.email %>
   </div>
-  <% if review.user == current_user %>
+  <% if review.editable_by?(current_user) %>
     <%= link_to "Edit Review", edit_neighborhood_review_path(review.neighborhood, review)  %>
     <%= link_to "Delete", neighborhood_review_path(review.neighborhood, review), method: :delete %>
   <% end %>

@@ -2,12 +2,16 @@ class NeighborhoodsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @neighborhoods = Neighborhood.limit(10)
+    @neighborhoods = Neighborhood.page(params[:page]).per(10)
   end
 
   def show
     @neighborhood = Neighborhood.find(params[:id])
-    @reviews = @neighborhood.reviews.order(created_at: :desc)
+    @reviews = @neighborhood.
+      reviews.
+      order(created_at: :desc).
+      page(params[:page]).
+      per(25)
     @review = Review.new
   end
 
@@ -32,8 +36,8 @@ class NeighborhoodsController < ApplicationController
 
   def update
     @neighborhood = Neighborhood.find(params[:id])
-    if @neighborhood.update_attributes(neighborhood_params) &&
-        current_user == @neighborhood.user
+    if @neighborhood.editable_by?(current_user) &&
+        @neighborhood.update_attributes(neighborhood_params)
       redirect_to neighborhood_path(@neighborhood),
         notice: "Neighborhood Edited!"
     else
