@@ -1,4 +1,6 @@
-<%= form_for(@neighborhood, url: [:admin, @neighborhood]) do |f| %>
+<%= form_for(@neighborhood,
+      url: [:admin, @neighborhood],
+      html: { multipart: true}) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -9,6 +11,9 @@
 
   <%= f.label :description %>
   <%= f.text_area :description %>
+
+  <%= f.label :image %>
+  <%= f.file_field :image %>
 
   <%= f.submit "Submit" %>
 <% end %>

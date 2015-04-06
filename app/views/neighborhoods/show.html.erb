@@ -5,6 +5,7 @@
 <% if current_user == @neighborhood.user %>
   <%= link_to "Edit Page", edit_neighborhood_path(@neighborhood) %>
 <% end %>
+<%= image_tag @neighborhood.image_url.to_s %>
 
 <%= render "reviews/index" if @reviews %>
 

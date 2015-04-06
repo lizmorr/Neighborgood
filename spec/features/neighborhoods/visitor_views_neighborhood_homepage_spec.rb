@@ -11,7 +11,7 @@ feature 'visitor views neighborgood homepage', %(
 
     visit root_path
     expect(page).to have_content(neighborhood.name)
-    expect(page).to have_content(neighborhood.location)
+    expect(page).to have_content(neighborhood.location.upcase)
   end
 
   scenario 'visitor sees 10 neighborhoods per page' do

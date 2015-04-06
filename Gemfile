@@ -29,3 +29,4 @@ group :test do
 end
 
 gem 'rails_12factor', group: :production
+gem 'carrierwave'

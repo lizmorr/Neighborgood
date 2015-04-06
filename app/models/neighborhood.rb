@@ -1,6 +1,8 @@
 class Neighborhood < ActiveRecord::Base
   belongs_to :user
   has_many :reviews
+  mount_uploader :image, AvatarUploader
+
   LOCATIONS = %w(North Northeast East South Southwest Southeast West)
 
   validates :name, presence: true, uniqueness: true, length: { in: 4..30 }
