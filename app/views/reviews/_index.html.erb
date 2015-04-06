@@ -7,6 +7,6 @@
       <%= link_to "Upvote", review_upvotes_path(review), method: :post %>
       <%= link_to "Downvote", review_downvotes_path(review), method: :post %>
     <% end %>
-    <p>Votes: <%= review.total_votes %></p>
+    <p>Votes: <%= review.total_votes(@score) %></p>
   </div>
 <% end %>

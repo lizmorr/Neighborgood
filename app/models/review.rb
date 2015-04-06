@@ -16,7 +16,7 @@ class Review < ActiveRecord::Base
     votes.find_by(user_id: user)
   end
 
-  def total_votes
+  def total_votes(score)
     votes.sum(:value)
   end
 end
