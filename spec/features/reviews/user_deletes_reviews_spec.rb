@@ -10,6 +10,7 @@ feature "user can delete reviews", %(
     neighborhood = FactoryGirl.create(:neighborhood)
     user = FactoryGirl.create(:user)
     review = FactoryGirl.create(:review, user: user, neighborhood: neighborhood)
+    FactoryGirl.create(:review, neighborhood: neighborhood, rating: 3, description: "Yo.")
 
     visit new_user_session_path
     sign_in_as(user)
@@ -18,27 +19,15 @@ feature "user can delete reviews", %(
 
     click_on "Delete Review"
 
-    save_and_open_page
-
     expect(page).to have_content("Review deleted")
 
-    within("\#review_#{review.id} .rating") do
-      expect(page.to have_content(review.rating))
+    within(".review .rating") do
+      expect(page).to_not have_content(review.rating)
     end
-    within("\#review_#{review.id}") do
+    within(".review") do
       expect(page).to_not have_content(review.description)
     end
 
-
-
-    # within("\#review_#{review.id} .rating") do
-    #   expect(page).to have_content("2")
-    #   expect(page).to_not have_content(review.rating)
-    # end
-    # within("\#review_#{review.id}") do
-    #   expect(page).to have_content("This sucks.")
-    #   expect(page).to_not have_content(review.description)
-    # end
     # expect(page).to_not have_css("\#review_#{review.id}", text: review.rating)
   end
 

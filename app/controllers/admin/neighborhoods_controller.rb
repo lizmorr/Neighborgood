@@ -9,7 +9,7 @@ module Admin
         @neighborhood = Neighborhood.new
       else
         redirect_to neighborhoods_path,
-        notice: "You don't have access to this page!"
+          notice: "You don't have access to this page!"
       end
     end
 
