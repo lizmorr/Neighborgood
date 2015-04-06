@@ -4,14 +4,14 @@ RSpec.describe User, type: :model do
   describe 'admin?' do
     context 'neighborhood user is an admin' do
       it 'returns true' do
-        user = FactoryGirl.create(:user, role: 'admin')
-        expect(user.admin?).to eq true
+        admin = FactoryGirl.create(:admin_user)
+        expect(admin).to be_admin
       end
     end
     context 'neighborhood user is not an admin' do
       it 'returns false' do
-        user = FactoryGirl.create(:user, role: 'member')
-        expect(user.admin?).to eq false
+        user = FactoryGirl.create(:user)
+        expect(user).to_not be_admin
       end
     end
   end
@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
       it 'returns true' do
         user = FactoryGirl.create(:user)
         user.set_admin
-        expect(user.admin?).to eq true
+        expect(user).to be_admin
       end
     end
   end

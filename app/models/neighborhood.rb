@@ -11,4 +11,8 @@ class Neighborhood < ActiveRecord::Base
   def editable_by?(user)
     user == self.user
   end
+
+  def destroyable_by?(user)
+    user.admin?
+  end
 end

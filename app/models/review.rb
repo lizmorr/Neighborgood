@@ -12,4 +12,8 @@ class Review < ActiveRecord::Base
   def editable_by?(user)
     user == self.user
   end
+
+  def deletable_by?(user)
+    user == self.user || user.try(:admin?)
+  end
 end
