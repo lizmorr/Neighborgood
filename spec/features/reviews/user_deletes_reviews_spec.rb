@@ -10,7 +10,8 @@ feature "user can delete reviews", %(
     neighborhood = FactoryGirl.create(:neighborhood)
     user = FactoryGirl.create(:user)
     review = FactoryGirl.create(:review, user: user, neighborhood: neighborhood)
-    FactoryGirl.create(:review, neighborhood: neighborhood, rating: 3, description: "Yo.")
+    FactoryGirl.create(:review, neighborhood: neighborhood, rating: 3,
+      description: "Yo.")
 
     visit new_user_session_path
     sign_in_as(user)
@@ -28,7 +29,6 @@ feature "user can delete reviews", %(
       expect(page).to_not have_content(review.description)
     end
 
-    # expect(page).to_not have_css("\#review_#{review.id}", text: review.rating)
   end
 
   scenario "a difference user cannot delete review" do
