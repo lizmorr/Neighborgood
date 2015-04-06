@@ -23,7 +23,7 @@ feature "admin can create new neighborhood", %(
 
     expect(page).to have_content("Neighborhood Added!")
     expect(page).to have_content("Downtown")
-    expect(page).to have_content("East")
+    expect(page).to have_content("EAST")
   end
 
   scenario "user attempts to add invalid neighborhood" do
