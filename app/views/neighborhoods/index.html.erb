@@ -6,6 +6,6 @@
   <p><%= neighborhood.location %></p>
 <% end %>
 
-<% if current_user %>
-  <%= link_to 'New Neighborhood', new_neighborhood_path %>
+<% if !current_user.nil? && current_user.admin? %>
+  <%= link_to "New Neighborhood", new_neighborhood_path %>
 <% end %>

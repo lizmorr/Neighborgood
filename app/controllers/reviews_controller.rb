@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
 
   def edit
     @neighborhood = Neighborhood.find(params[:neighborhood_id])

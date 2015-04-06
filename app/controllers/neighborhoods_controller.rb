@@ -46,6 +46,15 @@ class NeighborhoodsController < ApplicationController
     end
   end
 
+  def destroy
+    @neighborhood = Neighborhood.find(params[:id])
+    if current_user.admin?
+      @neighborhood.destroy
+      flash[:notice] = "Neighborhood has been deleted"
+      redirect_to neighborhoods_path
+    end
+  end
+
   protected
 
   def neighborhood_params
