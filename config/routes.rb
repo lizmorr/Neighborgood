@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :reviews, except: :show do
     resources :upvotes, only: [:create, :update]
     resources :downvotes, only: [:create, :update]
+    resources :votes, only: [:update]
   end
 end

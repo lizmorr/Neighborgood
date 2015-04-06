@@ -22,4 +22,8 @@
       vote.value = -1
     end
   end
+
+  def update_vote(value)
+    update_attributes(value: value)
+  end
 end
