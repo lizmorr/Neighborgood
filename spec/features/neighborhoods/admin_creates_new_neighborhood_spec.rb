@@ -6,16 +6,12 @@ feature "admin can create new neighborhood", %(
   So that others can tell me about it (review it).
 ) do
 
-  before do
-    user = FactoryGirl.create(:user)
-    visit new_user_session_path
+  scenario "admin successfully adds new neighborhood" do
+    admin = FactoryGirl.create(:admin_user)
+    sign_in_as(admin)
 
-    sign_in_as(user)
+    visit new_admin_neighborhood_path
 
-    visit new_neighborhood_path
-  end
-
-  scenario "user successfully adds new neighborhood" do
     fill_in "Name", with: "Downtown"
     select("East", from: "Location")
     fill_in "Description", with: "Lame."
@@ -26,10 +22,28 @@ feature "admin can create new neighborhood", %(
     expect(page).to have_content("East")
   end
 
-  scenario "user attempts to add invalid neighborhood" do
+  scenario "admin attempts to add invalid neighborhood" do
+    admin = FactoryGirl.create(:admin_user)
+    sign_in_as(admin)
+
+    visit new_admin_neighborhood_path
+
     click_on "Submit"
 
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Name is too short (minimum is 4 characters)")
+  end
+
+  scenario "user attempts to add neighborhood" do
+    user = FactoryGirl.create(:user)
+    sign_in_as(user)
+
+    visit new_admin_neighborhood_path
+    expect(page).to have_content("You don't have access to this page!")
+  end
+
+  scenario "visitor attempts to add neighborhood" do
+    visit new_admin_neighborhood_path
+    expect(page).to have_content("You don't have access to this page!")
   end
 end

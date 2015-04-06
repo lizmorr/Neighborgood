@@ -3,7 +3,7 @@
 <p><%= @neighborhood.description %></p>
 
 <% if current_user == @neighborhood.user %>
-  <%= link_to 'Edit Page', edit_neighborhood_path(@neighborhood) %>
+  <%= link_to "Edit Page", edit_neighborhood_path(@neighborhood) %>
 <% end %>
 
 <%= render "reviews/index" if @reviews %>

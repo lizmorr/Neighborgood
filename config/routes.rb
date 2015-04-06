@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   root "neighborhoods#index"
   devise_for :users
 
-  resources :neighborhoods, only: [:index, :show, :new,
-    :create, :edit, :update] do
-    resources :reviews, only: [:index, :new, :create, :edit, :update, :destroy]
+  namespace :admin do
+    resources :neighborhoods, only: [:index, :new, :create, :destroy]
+  end
+
+  resources :neighborhoods, only: [:index, :show, :edit, :update] do
+    resources :reviews, only: [:new, :create, :edit, :update, :destroy]
   end
 end

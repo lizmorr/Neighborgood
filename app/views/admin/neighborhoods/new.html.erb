@@ -1,5 +1,4 @@
-
-<%= form_for @neighborhood do |f| %>
+<%= form_for(@neighborhood, url: [:admin, @neighborhood]) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 

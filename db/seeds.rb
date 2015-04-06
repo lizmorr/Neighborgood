@@ -3,12 +3,13 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#   cities = City.create([{ name: "Chicago" }, { name: "Copenhagen" }])
+#   Mayor.create(name: "Emanuel", city: cities.first)
 if Rails.env.development?
-  User.find_or_create_by!(email: 'Test@Fake.com') do |user|
-    user.password = 'password123'
-    # user.password_confirmation = 'password123'
+  User.find_or_create_by!(email: "Test@Fake.com") do |user|
+    user.password = "password123"
+    user.role = "admin"
+    # user.password_confirmation = "password123"
   end
 
   5.times do
