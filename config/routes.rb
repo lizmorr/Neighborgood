@@ -6,7 +6,13 @@ Rails.application.routes.draw do
     resources :neighborhoods, only: [:index, :new, :create, :destroy]
   end
 
-  resources :neighborhoods, only: [:index, :show, :edit, :update] do
-    resources :reviews, only: [:new, :create, :edit, :update, :destroy]
+  resources :neighborhoods, except: [:new, :create, :destroy] do
+    resources :reviews, except: [:index, :show]
+  end
+
+  resources :reviews, except: :show do
+    resources :upvotes, only: [:create, :update]
+    resources :downvotes, only: [:create, :update]
+    resources :votes, only: [:update]
   end
 end

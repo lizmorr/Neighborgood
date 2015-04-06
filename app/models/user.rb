@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :neighborhoods
   has_many :reviews
+  has_many :votes
 
   ROLES = %w(member admin)
 
