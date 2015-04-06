@@ -7,7 +7,7 @@
 <% end %>
 
 <% if !current_user.nil? && current_user.admin? %>
-  <%= link_to "Delete this Neighborhood", neighborhood_path(@neighborhood), method: :delete %>
+  <%= link_to "Delete this Neighborhood", admin_neighborhood_path(@neighborhood), method: :delete %>
 <% end %>
 
 <%= render "reviews/index" if @reviews %>

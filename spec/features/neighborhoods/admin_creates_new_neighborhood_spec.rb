@@ -7,10 +7,10 @@ feature "admin can create new neighborhood", %(
 ) do
 
   scenario "admin successfully adds new neighborhood" do
-    user = FactoryGirl.create(:user, role: 'admin')
-    sign_in_as(user)
+    admin = FactoryGirl.create(:admin_user)
+    sign_in_as(admin)
 
-    visit new_neighborhood_path
+    visit new_admin_neighborhood_path
 
     fill_in "Name", with: "Downtown"
     select("East", from: "Location")
@@ -23,10 +23,10 @@ feature "admin can create new neighborhood", %(
   end
 
   scenario "admin attempts to add invalid neighborhood" do
-    user = FactoryGirl.create(:user, role: 'admin')
-    sign_in_as(user)
+    admin = FactoryGirl.create(:admin_user)
+    sign_in_as(admin)
 
-    visit new_neighborhood_path
+    visit new_admin_neighborhood_path
 
     click_on "Submit"
 

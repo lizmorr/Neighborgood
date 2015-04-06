@@ -7,8 +7,9 @@ feature "admin can delete new neighborhood", %(
 ) do
 
   scenario "admin successfully deletes a neighborhood" do
-    user = FactoryGirl.create(:user, role: "admin")
-    sign_in_as(user)
+    admin = FactoryGirl.create(:admin_user)
+    sign_in_as(admin)
+
     neighborhood = FactoryGirl.create(:neighborhood)
     visit neighborhood_path(neighborhood)
 
@@ -20,6 +21,7 @@ feature "admin can delete new neighborhood", %(
   scenario "non-admin user attempts to delete a neighborhood" do
     user = FactoryGirl.create(:user)
     sign_in_as(user)
+
     neighborhood = FactoryGirl.create(:neighborhood)
     visit neighborhood_path(neighborhood)
 
