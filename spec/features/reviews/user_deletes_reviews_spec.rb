@@ -18,9 +18,28 @@ feature "user can delete reviews", %(
 
     click_on "Delete Review"
 
+    save_and_open_page
+
     expect(page).to have_content("Review deleted")
-    expect(page).to_not have_css("\#id_#{review.id}", text: review.rating)
-    expect(page).to_not have_content(review.description)
+
+    within("\#review_#{review.id} .rating") do
+      expect(page.to have_content(review.rating))
+    end
+    within("\#review_#{review.id}") do
+      expect(page).to_not have_content(review.description)
+    end
+
+
+
+    # within("\#review_#{review.id} .rating") do
+    #   expect(page).to have_content("2")
+    #   expect(page).to_not have_content(review.rating)
+    # end
+    # within("\#review_#{review.id}") do
+    #   expect(page).to have_content("This sucks.")
+    #   expect(page).to_not have_content(review.description)
+    # end
+    # expect(page).to_not have_css("\#review_#{review.id}", text: review.rating)
   end
 
   scenario "a difference user cannot delete review" do
@@ -50,7 +69,7 @@ feature "user can delete reviews", %(
     click_on "Delete Review"
 
     expect(page).to have_content("Review deleted")
-    expect(page).to_not have_css("\#id_#{review.id}", text: review.rating)
+    expect(page).to_not have_css("\#review_#{review.id}", text: review.rating)
     expect(page).to_not have_content(review.description)
   end
 end

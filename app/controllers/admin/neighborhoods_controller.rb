@@ -1,6 +1,5 @@
 module Admin
   class NeighborhoodsController < ApplicationController
-
     def index
       @neighborhoods = Neighborhood.page(params[:page]).per(10)
     end
@@ -9,7 +8,8 @@ module Admin
       if current_user.try(:admin?)
         @neighborhood = Neighborhood.new
       else
-        redirect_to neighborhoods_path, notice: "You don't have access to this page!"
+        redirect_to neighborhoods_path,
+        notice: "You don't have access to this page!"
       end
     end
 
@@ -26,7 +26,7 @@ module Admin
 
     def destroy
       @neighborhood = Neighborhood.find(params[:id])
-      if current_user.admin?
+      if @neighborhood.destroyable_by?(current_user)
         @neighborhood.destroy
         flash[:notice] = "Neighborhood has been deleted"
         redirect_to admin_neighborhoods_path
