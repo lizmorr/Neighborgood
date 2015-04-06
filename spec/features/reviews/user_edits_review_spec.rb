@@ -21,11 +21,11 @@ feature "user edits review", %(
     fill_in "Review", with: "This sucks."
     click_on "Edit Review"
 
-    within("\#id_#{review.id} .rating") do
+    within("\#review_#{review.id} .rating") do
       expect(page).to have_content("2")
       expect(page).to_not have_content(review.rating)
     end
-    within("\#id_#{review.id}") do
+    within("\#review_#{review.id}") do
       expect(page).to have_content("This sucks.")
       expect(page).to_not have_content(review.description)
     end
@@ -34,7 +34,7 @@ feature "user edits review", %(
   scenario "original reviwer unsuccessfully edits review" do
     user = FactoryGirl.create(:user)
     neighborhood = FactoryGirl.create(:neighborhood)
-    review = FactoryGirl.create(:review, user: user, neighborhood: neighborhood)
+    FactoryGirl.create(:review, user: user, neighborhood: neighborhood)
 
     sign_in_as(user)
 
@@ -53,7 +53,7 @@ feature "user edits review", %(
     original_user = FactoryGirl.create(:user)
     random_user = FactoryGirl.create(:user)
     neighborhood = FactoryGirl.create(:neighborhood)
-    review = FactoryGirl.create(
+    FactoryGirl.create(
       :review, user: original_user, neighborhood: neighborhood
     )
 

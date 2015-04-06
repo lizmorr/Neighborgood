@@ -8,8 +8,6 @@ feature "user edits neighborhood", %(
 
   before do
     user = FactoryGirl.create(:user)
-    visit new_user_session_path
-
     sign_in_as(user)
 
     neighborhood = FactoryGirl.create(:neighborhood, user_id: user.id)
