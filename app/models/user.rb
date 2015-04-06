@@ -10,10 +10,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def admin?
-   self.role == 'admin'
+    self.role == 'admin'
   end
 
   def set_admin
-   self.role = 'admin'
+    self.role = 'admin'
   end
 end
