@@ -9,11 +9,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def self.admin?
+  def admin?
     self.role == 'admin'
   end
 
-  def self.set_admin
+  def set_admin
     self.role = 'admin'
   end
 end
