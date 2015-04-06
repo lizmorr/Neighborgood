@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
   def destroy
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
     @review = Review.find(params[:id])
-    if @review.user == current_user
+    if @review.user == current_user || current_user.admin?
       @review.destroy
       flash[:notice] = "Review deleted"
       redirect_to neighborhood_path(@neighborhood)
