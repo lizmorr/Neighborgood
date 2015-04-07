@@ -24,7 +24,7 @@ class Neighborhood < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where([ "name ILIKE ?", "%#{search}%"])
+      where(["name ILIKE ?", "%#{search}%"])
     else
       all
     end
