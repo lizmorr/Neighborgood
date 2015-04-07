@@ -3,8 +3,8 @@ require 'rails_helper'
 feature 'user can search by neighborhood' do
 
   scenario 'visitor searches for a neighborhood successfully' do
-    neighborhood_1 = FactoryGirl.create(:neighborhood, name: "One Neighborhood")
-    neighborhood_2 = FactoryGirl.create(:neighborhood, name: "Two Neighborhood")
+    FactoryGirl.create(:neighborhood, name: "One Neighborhood")
+    FactoryGirl.create(:neighborhood, name: "Two Neighborhood")
 
     visit neighborhoods_path
 
@@ -16,8 +16,8 @@ feature 'user can search by neighborhood' do
   end
 
   scenario 'visitor searches for something that does not exist' do
-    neighborhood_1 = FactoryGirl.create(:neighborhood, name: "One Neighborhood")
-    neighborhood_2 = FactoryGirl.create(:neighborhood, name: "Two Neighborhood")
+    FactoryGirl.create(:neighborhood, name: "One Neighborhood")
+    FactoryGirl.create(:neighborhood, name: "Two Neighborhood")
 
     visit neighborhoods_path
 

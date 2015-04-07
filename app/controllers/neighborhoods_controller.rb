@@ -2,7 +2,9 @@ class NeighborhoodsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @neighborhoods = Neighborhood.search(params[:search]).order_by_name(params[:page])
+    @neighborhoods = Neighborhood.
+      search(params[:search]).
+      order_by_name(params[:page])
 
     if @neighborhoods.empty? && params[:search]
       redirect_to neighborhoods_path, notice: "Search returned no results."
