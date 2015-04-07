@@ -4,7 +4,7 @@ class Vote < ActiveRecord::Base
 
   validates :user, presence: true
   validates :review, presence: true
-  validates :value, numericality: { in: -1..1 }
+  validates :value, inclusion: { in: -1..1 }
   validates :user_id, uniqueness: { scope: :review_id }
 
   def self.build_upvote(user, review)
