@@ -22,6 +22,7 @@ feature "user reviews a neighborhood", %(
     expect(page).to have_content("Review added successfully.")
     expect(page).to have_content("5")
     expect(page).to have_content("This neighborhood.")
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
   scenario "authenticated user submits no information and fails" do
@@ -36,6 +37,7 @@ feature "user reviews a neighborhood", %(
 
     expect(page).to have_content("Rating can't be blank")
     expect(page).to have_content("Description can't be blank")
+    expect(ActionMailer::Base.deliveries.count).to eq(0)
   end
 
   scenario "authenticated user submits invalid description and fails" do
@@ -52,6 +54,7 @@ feature "user reviews a neighborhood", %(
     click_on "Add Review"
 
     expect(page).to have_content("Description is too long")
+    expect(ActionMailer::Base.deliveries.count).to eq(0)
   end
 
   scenario "unauthenticated user is unable to review neighborhood" do
@@ -66,5 +69,6 @@ feature "user reviews a neighborhood", %(
 
     expect(page).to have_content("You need to sign in or sign up before\
      continuing.")
+     expect(ActionMailer::Base.deliveries.count).to eq(0)
   end
 end
