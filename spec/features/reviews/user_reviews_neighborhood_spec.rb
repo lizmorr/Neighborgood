@@ -69,6 +69,6 @@ feature "user reviews a neighborhood", %(
 
     expect(page).to have_content("You need to sign in or sign up before\
      continuing.")
-     expect(ActionMailer::Base.deliveries.count).to eq(0)
+    expect(ActionMailer::Base.deliveries.count).to eq(0)
   end
 end
