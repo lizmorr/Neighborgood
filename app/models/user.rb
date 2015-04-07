@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :neighborhoods
   has_many :reviews
   has_many :votes
+  mount_uploader :image, AvatarUploader
 
   ROLES = %w(member admin)
 
