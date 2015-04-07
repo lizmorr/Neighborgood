@@ -37,4 +37,23 @@ RSpec.describe Neighborhood, type: :model do
       end
     end
   end
+
+  describe 'search' do
+    context 'has search params' do
+      it 'returns a search method' do
+        FactoryGirl.create(:neighborhood, name: "hello")
+        search = "hello"
+        expect(Neighborhood.search(search)).
+          to eq Neighborhood.where(["name ILIKE ?", "%hello%"])
+      end
+    end
+
+    context 'has no search params' do
+      it 'does not have search params' do
+        FactoryGirl.create(:neighborhood)
+        search = nil
+        expect(Neighborhood.search(search)).to eq Neighborhood.all
+      end
+    end
+  end
 end

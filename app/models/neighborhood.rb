@@ -17,4 +17,16 @@ class Neighborhood < ActiveRecord::Base
   def destroyable_by?(user)
     user.admin?
   end
+
+  def self.order_by_name(page)
+    order(:name).page(page).per(10)
+  end
+
+  def self.search(search)
+    if search
+      where(["name ILIKE ?", "%#{search}%"])
+    else
+      all
+    end
+  end
 end
