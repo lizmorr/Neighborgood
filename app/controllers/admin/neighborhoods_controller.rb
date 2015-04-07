@@ -1,7 +1,12 @@
 module Admin
   class NeighborhoodsController < ApplicationController
     def index
-      @neighborhoods = Neighborhood.page(params[:page]).per(10)
+      if current_user.try(:admin?)
+        @neighborhoods = Neighborhood.page(params[:page]).per(10)
+      else
+        redirect_to neighborhoods_path,
+          notice: "You don't have access to this page!"
+      end
     end
 
     def new

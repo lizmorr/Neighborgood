@@ -1,0 +1,18 @@
+
+<%= form_for @neighborhood, html: { multipart: true} do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :location %>
+  <%= f.select :location,
+      Neighborhood::LOCATIONS,
+      :include_blank => "Please Choose A Location" %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+
+  <%= f.submit "Submit" %>
+<% end %>
