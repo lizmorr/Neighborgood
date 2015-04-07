@@ -43,8 +43,8 @@ RSpec.describe Neighborhood, type: :model do
       it 'returns a search method' do
         FactoryGirl.create(:neighborhood, name: "hello")
         search = "hello"
-        expect(Neighborhood.search(search)).to eq
-        Neighborhood.where(["name ILIKE ?", "%hello%"])
+        expect(Neighborhood.search(search)).
+          to eq Neighborhood.where(["name ILIKE ?", "%hello%"])
       end
     end
 
