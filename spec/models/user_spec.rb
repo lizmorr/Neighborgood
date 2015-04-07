@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   it { should have_many(:votes) }
 
   it { should validate_presence_of(:role) }
-  it { should have_valid(:role).when("admin")
+  it { should have_valid(:role).when("admin") }
   it { should_not have_valid(:role).when("Guest") }
 
   it 'should validate uniqueness of user' do
