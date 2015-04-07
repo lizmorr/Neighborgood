@@ -1,6 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe Review, type: :model do
+describe Review do
+  it { should belong_to(:neighborhood) }
+  it { should belong_to(:user) }
+  it { should have_many(:votes) }
+
+  it { should validate_presence_of(:neighborhood) }
+  it { should validate_presence_of(:user) }
+
+  it { should have_valid(:rating).when(1, 5) }
+  it { should_not have_valid(:rating).when(6) }
+
+  it { should have_valid(:description).when("neighborhood") }
+  it { should_not have_valid(:description).when(nil, "") }
+
   describe 'editable_by?' do
     context 'review user signed in' do
       it 'returns true' do

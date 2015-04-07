@@ -1,6 +1,28 @@
 require 'rails_helper'
 
-RSpec.describe Neighborhood, type: :model do
+describe Neighborhood do
+  it { should belong_to(:user) }
+  it { should have_many(:reviews) }
+
+  it { should validate_presence_of(:user) }
+
+  it { should validate_presence_of(:name) }
+  it { should_not have_valid(:name).when("G") }
+
+  it { should validate_presence_of(:location) }
+  it { should have_valid(:location).when("North") }
+  it { should_not have_valid(:location).when(nil, "") }
+
+  it { should have_valid(:description).when("jio") }
+  it { should_not have_valid(:description).when("G") }
+
+  it 'should validate uniqueness of neighborhood' do
+    neighborhood = FactoryGirl.create(:neighborhood)
+    neighborhood_2 = FactoryGirl.build(:neighborhood, name: neighborhood.name)
+
+    expect { neighborhood_2.save! }.to raise_error(ActiveRecord::RecordInvalid)
+  end
+
   describe 'editable_by?' do
     context 'neighborhood user signed in' do
       it 'returns true' do
