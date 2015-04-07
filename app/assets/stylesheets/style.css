@@ -24,6 +24,10 @@ nav.top-bar {
   color: #ff69b4;
 }
 
+.top-bar .right li img {
+  border-radius: 35px;
+}
+
 nav.top-bar ul.right li a:hover {
   background-color: none;
   background: none;
