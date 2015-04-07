@@ -13,7 +13,6 @@ gem 'kaminari'
 gem 'carrierwave'
 gem "fog"
 
-
 group :development, :test do
   gem 'spring'
   gem 'pry-rails'
