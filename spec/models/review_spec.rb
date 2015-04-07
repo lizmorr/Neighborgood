@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Review, type: :model do
+describe Review do
   it { should belong_to(:neighborhood) }
   it { should belong_to(:user) }
   it { should have_many(:votes) }

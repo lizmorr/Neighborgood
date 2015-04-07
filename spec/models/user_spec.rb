@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+describe User do
   it { should have_many(:neighborhoods) }
   it { should have_many(:reviews) }
   it { should have_many(:votes) }

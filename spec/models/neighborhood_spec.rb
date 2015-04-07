@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Neighborhood, type: :model do
+describe Neighborhood do
   it { should belong_to(:user) }
   it { should have_many(:reviews) }
 
