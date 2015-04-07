@@ -133,7 +133,8 @@ GEM
     fog-ecloud (0.1.1)
       fog-core
       fog-xml
-    fog-json (1.0.0)
+    fog-json (1.0.1)
+      fog-core (~> 1.0)
       multi_json (~> 1.0)
     fog-local (0.1.0)
       fog-core (~> 1.27)
