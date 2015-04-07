@@ -10,7 +10,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'foundation-rails'
 gem 'kaminari'
-
+gem 'carrierwave'
 
 group :development, :test do
   gem 'spring'
@@ -29,4 +29,3 @@ group :test do
 end
 
 gem 'rails_12factor', group: :production
-gem 'carrierwave'
