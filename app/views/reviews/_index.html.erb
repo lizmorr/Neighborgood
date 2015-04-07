@@ -6,15 +6,17 @@
     </div>
     <%= review.description %>
     <%= review.user.email %>
-    <% if review.voted_on_by?(current_user) && review.find_vote(current_user).value == 0 %>
-      <%= link_to "Upvote", review_upvote_path(review, review.find_vote(current_user)), method: :patch %>
-      <%= link_to "Downvote", review_downvote_path(review, review.find_vote(current_user)), method: :patch %>
-    <% elsif review.voted_on_by?(current_user) %>
-        Already voted. <%= link_to "Cancel.",
-        review_vote_path(review, review.find_vote(current_user)), method: :patch %>
-    <% else %>
-      <%= link_to "Upvote", review_upvotes_path(review), method: :post %>
-      <%= link_to "Downvote", review_downvotes_path(review), method: :post %>
+    <% if !current_user.nil? %>
+      <% if review.voted_on_by?(current_user) && review.find_vote(current_user).value == 0 %>
+        <%= link_to "Upvote", review_upvote_path(review, review.find_vote(current_user)), method: :patch %>
+        <%= link_to "Downvote", review_downvote_path(review, review.find_vote(current_user)), method: :patch %>
+      <% elsif review.voted_on_by?(current_user) %>
+          Already voted. <%= link_to "Cancel.",
+          review_vote_path(review, review.find_vote(current_user)), method: :patch %>
+      <% else %>
+        <%= link_to "Upvote", review_upvotes_path(review), method: :post %>
+        <%= link_to "Downvote", review_downvotes_path(review), method: :post %>
+      <% end %>
     <% end %>
     <p>Votes: <%= review.total_votes %></p>
   </div>
