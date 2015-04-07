@@ -15,5 +15,17 @@ feature 'user can search by neighborhood' do
     expect(page).to_not have_content("Two Neighborhood")
   end
 
-  scenario 'visitor searches for something that does not exist'
+  scenario 'visitor searches for something that does not exist' do
+    neighborhood_1 = FactoryGirl.create(:neighborhood, name: "One Neighborhood")
+    neighborhood_2 = FactoryGirl.create(:neighborhood, name: "Two Neighborhood")
+
+    visit neighborhoods_path
+
+    fill_in 'Search Neighborhoods', with: "Three"
+    click_on "Search"
+
+    expect(page).to have_content("One Neighborhood")
+    expect(page).to have_content("Two Neighborhood")
+    expect(page).to have_content("Search returned no results.")
+  end
 end
