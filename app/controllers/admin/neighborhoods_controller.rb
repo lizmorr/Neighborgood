@@ -36,7 +36,7 @@ module Admin
     protected
 
     def neighborhood_params
-      params.require(:neighborhood).permit(:name, :location, :description)
+      params.require(:neighborhood).permit(:name, :location, :description, :image)
     end
   end
 end
