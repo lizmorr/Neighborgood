@@ -2,7 +2,12 @@ class NeighborhoodsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @neighborhoods = Neighborhood.order(:name).page(params[:page]).per(10)
+    if params[:search]
+      neighborhoods = Neighborhood.where([ "name ILIKE ?", "%#{params[:search]}%"])
+      @neighborhoods = neighborhoods.order(:name).page(params[:page]).per(10)
+    else
+      @neighborhoods = Neighborhood.order(:name).page(params[:page]).per(10)
+    end
   end
 
   def show
