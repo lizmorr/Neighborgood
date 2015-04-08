@@ -19,6 +19,7 @@ feature "admin can create new neighborhood", %(
     click_on "Submit"
 
     neighborhood = Neighborhood.last
+    
     expect(page).to have_content("Neighborhood Added!")
     expect(page).to have_content(neighborhood.name)
     expect(page).to have_content(neighborhood.location.upcase)

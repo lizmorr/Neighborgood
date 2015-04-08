@@ -18,18 +18,24 @@ feature 'user registers', %Q{
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
-
+    attach_file("user_image", "spec/fixtures/Stonehenge.jpg")
     click_button 'Sign up'
+
+    user = User.last
 
     expect(page).to have_content('Welcome! You have signed up successfully.')
     expect(page).to have_content('Sign Out')
+    expect(page).to have_css("img[src*='#{user.image.url}']")
   end
 
   scenario 'provide invalid registration information' do
     visit new_user_registration_path
 
+    attach_file("user_image", "spec/fixtures/Stonehenge.pdf")
+
     click_button 'Sign up'
     expect(page).to have_content("can't be blank")
+    expect(page).to have_content(`Image You are not allowed to upload "pdf" files, allowed types: jpg, jpeg, gif, png`)
     expect(page).to_not have_content('Sign Out')
   end
 
