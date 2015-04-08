@@ -18,7 +18,8 @@ feature 'user registers', %Q{
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
-    attach_file("user_image", "#{Rails.root}/spec/fixtures/Stonehenge.jpg")
+    attach_file("user_image",
+      "#{Rails.root}/spec/fixtures/Stonehenge.jpg")
     click_button 'Sign up'
 
     expect(page).to have_content('Welcome! You have signed up successfully.')
@@ -29,7 +30,8 @@ feature 'user registers', %Q{
   scenario 'provide invalid registration information' do
     visit new_user_registration_path
 
-    attach_file("user_image", "#{Rails.root}/spec/fixtures/Stonehenge.pdf")
+    attach_file("user_image",
+      "#{Rails.root}/spec/fixtures/Stonehenge.pdf")
 
     click_button 'Sign up'
     expect(page).to have_content("can't be blank")

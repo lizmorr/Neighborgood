@@ -15,7 +15,8 @@ feature "admin can create new neighborhood", %(
     fill_in "Name", with: "Downtown"
     select("East", from: "Location")
     fill_in "Description", with: "Lame."
-    attach_file("neighborhood_image", "#{Rails.root}/spec/fixtures/Stonehenge.jpg")
+    attach_file("neighborhood_image",
+      "#{Rails.root}/spec/fixtures/Stonehenge.jpg")
     click_on "Submit"
 
     expect(page).to have_content("Neighborhood Added!")
@@ -54,7 +55,8 @@ feature "admin can create new neighborhood", %(
     sign_in_as(admin)
     visit new_admin_neighborhood_path
 
-    attach_file("neighborhood_image", "#{Rails.root}/spec/fixtures/Stonehenge.pdf")
+    attach_file("neighborhood_image",
+      "#{Rails.root}/spec/fixtures/Stonehenge.pdf")
     click_on "Submit"
 
     expect(page).to have_content(`Image You are not allowed to upload "pdf" \
