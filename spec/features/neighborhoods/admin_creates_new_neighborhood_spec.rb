@@ -15,6 +15,8 @@ feature "admin can create new neighborhood", %(
     fill_in "Name", with: "Downtown"
     select("East", from: "Location")
     fill_in "Description", with: "Lame."
+    attach_file("neighborhood_image",
+      "#{Rails.root}/spec/fixtures/Stonehenge.jpg")
     click_on "Submit"
 
     expect(page).to have_content("Neighborhood Added!")
@@ -45,5 +47,18 @@ feature "admin can create new neighborhood", %(
   scenario "visitor attempts to add neighborhood" do
     visit admin_neighborhoods_path
     expect(page).to have_content("You don't have access to this page!")
+  end
+
+  scenario "admin attempts to add wrong image type" do
+    admin = FactoryGirl.create(:admin_user)
+    sign_in_as(admin)
+    visit admin_neighborhoods_path
+
+    attach_file("neighborhood_image",
+      "#{Rails.root}/spec/fixtures/Stonehenge.pdf")
+    click_on "Submit"
+
+    expect(page).to have_content(`Image You are not allowed to upload "pdf" \
+      files, allowed types: jpg, jpeg, gif, png`)
   end
 end
