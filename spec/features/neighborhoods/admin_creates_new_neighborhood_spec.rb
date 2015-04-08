@@ -15,15 +15,13 @@ feature "admin can create new neighborhood", %(
     fill_in "Name", with: "Downtown"
     select("East", from: "Location")
     fill_in "Description", with: "Lame."
-    attach_file("neighborhood_image", "spec/fixtures/Stonehenge.jpg")
+    attach_file("neighborhood_image", "#{Rails.root}/spec/fixtures/Stonehenge.jpg")
     click_on "Submit"
 
-    neighborhood = Neighborhood.last
-
     expect(page).to have_content("Neighborhood Added!")
-    expect(page).to have_content(neighborhood.name)
-    expect(page).to have_content(neighborhood.location.upcase)
-    expect(page).to have_css("img[src*='#{neighborhood.image.url}']")
+    expect(page).to have_content("Downtown")
+    expect(page).to have_content("EAST")
+    expect(page).to have_css("img[src*='Stonehenge.jpg']")
   end
 
   scenario "admin attempts to add invalid neighborhood" do
@@ -56,10 +54,10 @@ feature "admin can create new neighborhood", %(
     sign_in_as(admin)
     visit new_admin_neighborhood_path
 
-    attach_file("neighborhood_image", "spec/fixtures/Stonehenge.pdf")
+    attach_file("neighborhood_image", "#{Rails.root}/spec/fixtures/Stonehenge.pdf")
     click_on "Submit"
 
-    expect(page).to have_content(`Image You are not allowed to upload
-      "pdf" files, allowed types: jpg, jpeg, gif, png`)
+    expect(page).to have_content(`Image You are not allowed to upload "pdf" \
+      files, allowed types: jpg, jpeg, gif, png`)
   end
 end
