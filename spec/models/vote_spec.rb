@@ -32,7 +32,7 @@ describe Vote do
       it 'returns -1' do
         review = FactoryGirl.create(:review)
         user = FactoryGirl.create(:user)
-        expect(Vote.build_downvote(user, review).value).to eq -1
+        expect(Vote.build_downvote(user, review).value).to eq(-1)
       end
     end
   end
@@ -42,7 +42,7 @@ describe Vote do
       it 'returns -1' do
         vote = FactoryGirl.create(:vote, value: 0)
         vote.update_vote(-1)
-        expect(vote.value).to eq -1
+        expect(vote.value).to eq(-1)
       end
     end
   end
