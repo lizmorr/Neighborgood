@@ -10,7 +10,7 @@ feature "admin can create new neighborhood", %(
     admin = FactoryGirl.create(:admin_user)
     sign_in_as(admin)
 
-    visit new_admin_neighborhood_path
+    visit admin_neighborhoods_path
 
     fill_in "Name", with: "Downtown"
     select("East", from: "Location")
@@ -19,14 +19,14 @@ feature "admin can create new neighborhood", %(
 
     expect(page).to have_content("Neighborhood Added!")
     expect(page).to have_content("Downtown")
-    expect(page).to have_content("EAST")
+    expect(page).to have_content("East")
   end
 
   scenario "admin attempts to add invalid neighborhood" do
     admin = FactoryGirl.create(:admin_user)
     sign_in_as(admin)
 
-    visit new_admin_neighborhood_path
+    visit admin_neighborhoods_path
 
     click_on "Submit"
 
@@ -38,12 +38,12 @@ feature "admin can create new neighborhood", %(
     user = FactoryGirl.create(:user)
     sign_in_as(user)
 
-    visit new_admin_neighborhood_path
+    visit admin_neighborhoods_path
     expect(page).to have_content("You don't have access to this page!")
   end
 
   scenario "visitor attempts to add neighborhood" do
-    visit new_admin_neighborhood_path
+    visit admin_neighborhoods_path
     expect(page).to have_content("You don't have access to this page!")
   end
 end
