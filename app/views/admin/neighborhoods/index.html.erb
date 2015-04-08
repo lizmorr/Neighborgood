@@ -11,7 +11,7 @@
     <% @neighborhoods.each do |neighborhood| %>
       <h2><%= link_to neighborhood.name, neighborhood_path(neighborhood) %></h2>
       <p><%= neighborhood.location %></p>
-      <p><%= link_to "Delete this Neighborhood", admin_neighborhood_path(neighborhood), method: :delete %></p>
+      <p id="delete"><%= link_to "Delete this Neighborhood", admin_neighborhood_path(neighborhood), method: :delete %></p>
     <% end %>
   <% end %>
 </div>
