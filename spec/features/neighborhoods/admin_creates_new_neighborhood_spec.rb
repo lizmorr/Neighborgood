@@ -24,6 +24,27 @@ feature "admin can create new neighborhood", %(
     expect(page).to have_content("East")
   end
 
+    scenario "admin successfully adds new neighborhood wihtout image" do
+    admin = FactoryGirl.create(:admin_user)
+    sign_in_as(admin)
+
+    visit admin_neighborhoods_path
+
+    fill_in "Name", with: "Downtown"
+    select("East", from: "Location")
+    fill_in "Description", with: "Lame."
+
+    click_on "Submit"
+
+    expect(page).to have_content("Neighborhood Added!")
+    expect(page).to have_content("Downtown")
+    expect(page).to have_content("East")
+
+    visit root_path
+
+    expect(page).to have_css("img[src*='/default.jpg']")
+  end
+
   scenario "admin attempts to add invalid neighborhood" do
     admin = FactoryGirl.create(:admin_user)
     sign_in_as(admin)
