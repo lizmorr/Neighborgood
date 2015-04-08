@@ -20,7 +20,7 @@ nav.top-bar {
   display: inline-block;
   padding-right: 15px;
   padding-top: 10px;
-  margin: .3em;
+  margin-top: .6em;
 }
 
 .top-bar .right li a {
@@ -29,6 +29,20 @@ nav.top-bar {
 
 .top-bar .right li img {
   border-radius: 35px;
+}
+
+.top-bar .left li {
+  font-family: Lato;
+  font-size: 1em;
+  display: inline-block;
+  padding-right: 15px;
+  padding-top: 10px;
+  margin-bottom: .3em;
+}
+
+.top-bar .left li .button {
+  font-family: Lato;
+  background-color: #41A5B2;
 }
 
 nav.top-bar ul.right li a:hover {
@@ -89,4 +103,25 @@ fieldset.tagline {
   font-family: Lato;
   display: left;
   text-align: center;
+}
+
+.row #neighborhood_info {
+  float: left;
+
+}
+#neighborhood {
+  padding-top: 4em;
+  font-family: Lato;
+}
+
+#neighborhood h1 {
+  font-family: Lato;
+}
+
+#neighborhood_info {
+  padding-top: 4em;
+}
+
+#ratings {
+  padding-top: 3em;
 }

@@ -5,13 +5,6 @@
 </fieldset>
 
 <div class="row">
-  <%= form_tag neighborhoods_path, method: :get, id: "search_form" do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Neighborhoods" %>
-    <%= submit_tag "Search", name: nil %>
-  <% end %>
-</div>
-
-<div class="row">
   <%= paginate @neighborhoods %>
   <% @neighborhoods.each do |neighborhood| %>
     <div class="large-4 columns">

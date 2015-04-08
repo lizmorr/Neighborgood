@@ -10,7 +10,6 @@ feature 'user can search by neighborhood' do
 
     fill_in 'Search Neighborhoods', with: "one"
     click_on "Search"
-
     expect(page).to have_content("One Neighborhood")
     expect(page).to_not have_content("Two Neighborhood")
   end
