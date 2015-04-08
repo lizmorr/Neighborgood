@@ -24,7 +24,7 @@ feature "admin can create new neighborhood", %(
     expect(page).to have_content("East")
   end
 
-  scenario "admin successfully adds new neighborhood wihtout image" do
+  scenario "admin successfully adds new neighborhood without image" do
     admin = FactoryGirl.create(:admin_user)
     sign_in_as(admin)
 
