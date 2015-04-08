@@ -5,7 +5,7 @@ module Admin
       if @user.destroyable_by?(current_user)
         @user.destroy
         flash[:notice] = "User has been deleted"
-        redirect_to admin_users_path
+        redirect_to admin_neighborhoods_path
       end
     end
   end

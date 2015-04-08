@@ -1,9 +1,9 @@
-<div class="row">
-  <% if @users %>
-    <%= paginate @users %>
-    <% @users.each do |user| %>
+<% if @users %>
+  <%= paginate @users %>
+  <% @users.each do |user| %>
+    <div id="user_<%= user.id %>">
       <h2><%= user.email %></h2>
       <p id="delete"><%= link_to "Delete this User", admin_user_path(user), method: :delete %></p>
-    <% end %>
+    </div>
   <% end %>
-</div>
+<% end %>
