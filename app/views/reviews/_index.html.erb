@@ -24,6 +24,6 @@
     <%= link_to "Edit Review", edit_neighborhood_review_path(review.neighborhood, review)  %>
   <% end %>
   <% if review.deletable_by?(current_user) %>
-    <%= link_to "Delete Review", neighborhood_review_path(review.neighborhood, review), method: :delete %>
+    <p id="delete"><%= link_to "Delete Review", neighborhood_review_path(review.neighborhood, review), method: :delete %></p>
   <% end %>
 <% end %>
