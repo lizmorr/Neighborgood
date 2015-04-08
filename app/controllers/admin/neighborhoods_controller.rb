@@ -23,7 +23,7 @@ module Admin
       @neighborhood = Neighborhood.new(neighborhood_params)
       @neighborhood.user = current_user
       if @neighborhood.save
-        redirect_to neighborhoods_path, notice: "Neighborhood Added!"
+        redirect_to admin_neighborhoods_path, notice: "Neighborhood Added!"
       else
         flash[:alert] = @neighborhood.errors.full_messages.join("\n")
         render :index

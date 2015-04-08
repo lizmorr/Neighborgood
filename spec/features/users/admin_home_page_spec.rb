@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'admin has link to admin home', %Q{
+feature 'admin has link to admin home', %{
   As a admin
   I want to see an admin home link
   So that I can access admin page
