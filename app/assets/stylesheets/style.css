@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400);
 
+body {
+  font-family: Lato;
+}
+
 nav.top-bar {
   background:rgba(0,0,0,0.5);
   background: #FFF;
@@ -33,6 +37,19 @@ nav.top-bar ul.right li a:hover {
   background: none;
   text-decoration: none;
 }
+
+.flash.flash-alert {
+  background-color: #FFF182;
+}
+
+.flash.flash-notice {
+  background-color: #41A5B2;
+}
+
+.flash .text {
+  padding: 1.5em;
+}
+
 
 fieldset.tagline {
   padding:50px;
