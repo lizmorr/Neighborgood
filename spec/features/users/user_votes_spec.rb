@@ -82,4 +82,46 @@ feature "user can upvote a review", %(
     expect(page).to_not have_content ("Upvote")
     expect(page).to_not have_content ("Downvote")
   end
+
+  scenario "user cancels upvote" do
+    user = FactoryGirl.create(:user)
+    sign_in_as(user)
+
+    review = FactoryGirl.create(:review)
+
+    number = review.total_votes
+
+    visit neighborhood_path(review.neighborhood)
+
+    first('.review').click_on "Upvote"
+
+    visit neighborhood_path(review.neighborhood)
+
+    first('.review').click_on "Cancel."
+
+    expect(page).to have_content("Votes: #{number}")
+    expect(page).to have_content ("Upvote")
+    expect(page).to have_content ("Downvote")
+  end
+
+  scenario "user cancels downvote" do
+    user = FactoryGirl.create(:user)
+    sign_in_as(user)
+
+    review = FactoryGirl.create(:review)
+
+    number = review.total_votes
+
+    visit neighborhood_path(review.neighborhood)
+
+    first('.review').click_on "Downvote"
+
+    visit neighborhood_path(review.neighborhood)
+
+    first('.review').click_on "Cancel."
+
+    expect(page).to have_content("Votes: #{number}")
+    expect(page).to have_content ("Upvote")
+    expect(page).to have_content ("Downvote")
+  end
 end
