@@ -4,15 +4,7 @@ module Admin
       if current_user.try(:admin?)
         @neighborhoods = Neighborhood.page(params[:page]).per(10)
         @neighborhood = Neighborhood.new
-      else
-        redirect_to neighborhoods_path,
-          notice: "You don't have access to this page!"
-      end
-    end
-
-    def new
-      if current_user.try(:admin?)
-        @neighborhood = Neighborhood.new
+        @users = User.page(params[:page]).per(10)
       else
         redirect_to neighborhoods_path,
           notice: "You don't have access to this page!"

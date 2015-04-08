@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
     self.role = 'admin'
     save
   end
+
+  def destroyable_by?(user)
+    user.admin?
+  end
 end
