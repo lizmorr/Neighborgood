@@ -9,8 +9,10 @@ class ReviewsController < ApplicationController
   def create
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
     @review = Review.create(review_params)
+    @review.rating = params["score"]
     @review.neighborhood = @neighborhood
     @review.user = current_user
+
     if @review.save
       ReviewNotifier.new_review(@review).deliver_later
       flash[:notice] = "Review added successfully."

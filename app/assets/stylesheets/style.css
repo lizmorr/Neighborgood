@@ -77,38 +77,56 @@ fieldset.tagline {
   display: inline-block;
 }
 
-.row .panel {
-  padding: 0;
-  border: none;
-  background: #FFFFFF;
-}
-.row .panel img {
-  max-width: 100%;
-  max-height: 100%;
-  border: 0;
+#neighborhood_list {
+  padding: 1em;
 }
 
-.row .panel h3 {
-  margin: -5px;
+#neighborhood_list img {
+  border-radius: 10px;
 }
 
-.row .panel h3 a {
-  font-family: Pacifico;
-  display: left;
-  text-align: center;
-  color: #ff69b4;
+.columns {
+  position: relative;
+  vertical-align: middle;
 }
 
-.row .panel {
+.row .row {
+  width: 100%;
+}
+
+.labelrow {
   font-family: Lato;
-  display: left;
+  color: #FFF;
+  position: absolute;
   text-align: center;
+  top: 41%;
+  width: 100%;
+}
+
+
+.labelrow a {
+  font-family: Pacifico;
+  color: #ff69b4;
+  font-size: 2em;
+  text-align: center;
+}
+
+.rating {
+  border: .15em solid #41A5B2;
+  padding: .7em;
+  margin: .8em;
+  -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.rating ul {
+  list-style-type: none;
 }
 
 .row #neighborhood_info {
   float: left;
-
 }
+
 #neighborhood {
   padding-top: 4em;
   font-family: Lato;
@@ -122,6 +140,6 @@ fieldset.tagline {
   padding-top: 4em;
 }
 
-#ratings {
+#ratings_list {
   padding-top: 3em;
 }

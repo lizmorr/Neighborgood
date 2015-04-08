@@ -11,7 +11,9 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'kaminari'
 gem 'carrierwave'
-gem "fog"
+gem 'fog'
+gem 'ratyrate'
+gem 'to_words'
 
 group :development, :test do
   gem 'spring'

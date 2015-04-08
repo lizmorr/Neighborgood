@@ -1,10 +1,10 @@
 <div class="row" id="neighborhood">
-    <div class="large-7 columns" id="neighborhood_header">
+    <div class="small-7 columns" id="neighborhood_header">
       <h1><%= @neighborhood.name %></h1>
       <%= image_tag @neighborhood.image_url.to_s %>
     </div>
 
-    <div class="large-5 columns" id="neighborhood_info">
+    <div class="small-5 columns" id="neighborhood_info">
       <h4><%= @neighborhood.location %></h4>
       <p><%= @neighborhood.description %></p>
       <% if current_user == @neighborhood.user %>
@@ -12,7 +12,7 @@
       <% end %>
     </div>
 
-    <div class="large-12 columns" id="ratings">
+    <div class="small-12 columns" id="ratings_list">
       <%= render "reviews/index" if @reviews %>
       <%= render "reviews/new" %>
     </div>
