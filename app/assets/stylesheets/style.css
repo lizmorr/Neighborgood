@@ -2,14 +2,16 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400);
 
 nav.top-bar {
+  height: 4em;
   background:rgba(0,0,0,0.5);
-  background: #FFF;
+  background: #ff69b4;
 }
 
 .top-bar ul li h1 a {
   font-family: Pacifico;
-  font-size: 1.4em;
-  color: #ff69b4 !important;
+  font-size: 1.6em;
+  margin: .3em;
+  color: #FFF;
 }
 
 .top-bar .right li {
@@ -18,10 +20,11 @@ nav.top-bar {
   display: inline-block;
   padding-right: 15px;
   padding-top: 10px;
+  margin: .3em;
 }
 
 .top-bar .right li a {
-  color: #ff69b4;
+  color: #FFF;
 }
 
 .top-bar .right li img {
