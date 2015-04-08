@@ -17,5 +17,6 @@ class User < ActiveRecord::Base
 
   def set_admin
     self.role = 'admin'
+    self.save
   end
 end
