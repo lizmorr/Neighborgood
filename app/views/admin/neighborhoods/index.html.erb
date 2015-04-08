@@ -1,10 +1,17 @@
 <h1>Neighborhoods of Boston</h1>
 
-<%= paginate @neighborhoods %>
-<% @neighborhoods.each do |neighborhood| %>
-  <h2><%= link_to neighborhood.name, neighborhood_path(neighborhood) %></h2>
-  <p><%= neighborhood.location %></p>
-  <p><%= link_to "Delete this Neighborhood", admin_neighborhood_path(neighborhood), method: :delete %></p>
-<% end %>
+<div class="row">
+  <h4>Add a Neighborhood</h4>
+  <%= render "new" %>
+</div>
 
-<%= link_to "New Neighborhood", new_admin_neighborhood_path %>
+<div class="row">
+  <% if @neighborhoods %>
+    <%= paginate @neighborhoods %>
+    <% @neighborhoods.each do |neighborhood| %>
+      <h2><%= link_to neighborhood.name, neighborhood_path(neighborhood) %></h2>
+      <p><%= neighborhood.location %></p>
+      <p><%= link_to "Delete this Neighborhood", admin_neighborhood_path(neighborhood), method: :delete %></p>
+    <% end %>
+  <% end %>
+</div>

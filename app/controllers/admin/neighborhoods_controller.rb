@@ -3,6 +3,7 @@ module Admin
     def index
       if current_user.try(:admin?)
         @neighborhoods = Neighborhood.page(params[:page]).per(10)
+        @neighborhood = Neighborhood.new
       else
         redirect_to neighborhoods_path,
           notice: "You don't have access to this page!"
@@ -25,7 +26,7 @@ module Admin
         redirect_to neighborhoods_path, notice: "Neighborhood Added!"
       else
         flash[:alert] = @neighborhood.errors.full_messages.join("\n")
-        render :new
+        render :index
       end
     end
 
