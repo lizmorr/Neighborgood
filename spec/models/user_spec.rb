@@ -40,4 +40,22 @@ describe User do
       end
     end
   end
+
+  describe 'destroyable_by?' do
+    context 'admin signed in' do
+      it 'returns true' do
+        admin = FactoryGirl.create(:admin_user)
+        user = FactoryGirl.create(:user)
+        expect(user.destroyable_by?(admin)).to eq true
+      end
+    end
+
+    context 'user signed in' do
+      it 'returns false' do
+        user = FactoryGirl.create(:user)
+        another_user = FactoryGirl.create(:user)
+        expect(another_user.destroyable_by?(user)).to eq false
+      end
+    end
+  end
 end
