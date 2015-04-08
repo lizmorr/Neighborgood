@@ -35,7 +35,8 @@ feature 'user registers', %Q{
 
     click_button 'Sign up'
     expect(page).to have_content("can't be blank")
-    expect(page).to have_content(`Image You are not allowed to upload "pdf" files, allowed types: jpg, jpeg, gif, png`)
+    expect(page).to have_content(`Image You are not allowed to upload
+      "pdf" files, allowed types: jpg, jpeg, gif, png`)
     expect(page).to_not have_content('Sign Out')
   end
 

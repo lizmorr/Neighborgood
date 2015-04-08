@@ -19,7 +19,7 @@ feature "admin can create new neighborhood", %(
     click_on "Submit"
 
     neighborhood = Neighborhood.last
-    
+
     expect(page).to have_content("Neighborhood Added!")
     expect(page).to have_content(neighborhood.name)
     expect(page).to have_content(neighborhood.location.upcase)
@@ -59,6 +59,7 @@ feature "admin can create new neighborhood", %(
     attach_file("neighborhood_image", "spec/fixtures/Stonehenge.pdf")
     click_on "Submit"
 
-    expect(page).to have_content(`Image You are not allowed to upload "pdf" files, allowed types: jpg, jpeg, gif, png`)
+    expect(page).to have_content(`Image You are not allowed to upload
+      "pdf" files, allowed types: jpg, jpeg, gif, png`)
   end
 end

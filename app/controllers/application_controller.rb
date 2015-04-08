@@ -10,6 +10,4 @@ class ApplicationController < ActionController::Base
       u.permit(:email, :password, :password_confirmation, :image)
     end
   end
-
-  protect_from_forgery with: :exception
 end
