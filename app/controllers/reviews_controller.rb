@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review updated!"
       redirect_to neighborhood_path(@review.neighborhood_id)
     else
-      flash[:alert] = @review.errors.full_messages.join("<br>")
+      flash[:alert] = @review.errors.full_messages.join("\n")
       redirect_to edit_neighborhood_review_path(@review.neighborhood, @review)
     end
   end
