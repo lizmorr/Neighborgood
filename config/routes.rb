@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :admin do
-    resources :neighborhoods, only: [:index, :new, :create, :destroy]
+    resources :neighborhoods, only: [:index, :create, :destroy]
+    resources :users, only: [:destroy]
   end
 
   resources :neighborhoods, except: [:new, :create, :destroy] do
