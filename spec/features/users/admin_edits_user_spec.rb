@@ -41,4 +41,13 @@ feature "admin can change user's role", %{
 
     expect(page).to have_content("User updated!")
   end
+
+  scenario "user tries to edit self" do
+    user = FactoryGirl.create(:user)
+    sign_in_as(user)
+
+    visit edit_admin_user_path(user)
+    expect(page).to have_content("You don't have access to this page!")
+  end
+
 end

@@ -1,7 +1,12 @@
 module Admin
   class UsersController < ApplicationController
     def edit
-      @user = User.find(params[:id])
+      if current_user.try(:admin?)
+        @user = User.find(params[:id])
+      else
+        redirect_to neighborhoods_path,
+          notice: "You don't have access to this page!"
+      end
     end
 
     def update
