@@ -24,7 +24,7 @@ module Admin
     protected
 
     def user_params
-      params.require(:user).permit(:role, :image)
+      params.require(:user).permit(:role)
     end
   end
 end
