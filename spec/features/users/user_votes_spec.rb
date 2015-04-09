@@ -12,7 +12,7 @@ feature "user can upvote a review", %(
 
     visit neighborhood_path(review.neighborhood)
 
-    first('.review').click_on "Upvote"
+    first('.rating .inline-list#vote_links .upvote').click_on "Upvote"
 
     expect(page).to have_content("Success!")
     expect(page).to have_content("Votes: 1")
@@ -27,7 +27,7 @@ feature "user can upvote a review", %(
 
     visit neighborhood_path(review.neighborhood)
 
-    first('.review').click_on "Downvote"
+    first('.rating .inline-list#vote_links .downvote').click_on "Downvote"
 
     expect(page).to have_content("Success!")
     expect(page).to have_content("Votes: -1")
@@ -46,7 +46,7 @@ feature "user can upvote a review", %(
 
     expect(page).to have_content("Votes: #{number}")
 
-    first('.review').click_on "Downvote"
+    first('.rating .inline-list#vote_links .downvote').click_on "Downvote"
 
     visit neighborhood_path(review.neighborhood)
 
@@ -66,7 +66,7 @@ feature "user can upvote a review", %(
 
     expect(page).to have_content("Votes: #{number}")
 
-    first('.review').click_on "Upvote"
+    first('.rating .inline-list#vote_links .upvote').click_on "Upvote"
 
     visit neighborhood_path(review.neighborhood)
 

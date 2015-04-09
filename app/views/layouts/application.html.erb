@@ -6,7 +6,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="sticky">
+  <div class="fixed">
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
@@ -21,8 +21,9 @@
               <%= text_field_tag :search, params[:search], placeholder: "Search Neighborhoods" %>
             </div>
             <div class="large-4 small-3 columns">
-              <%= submit_tag "Search", name: nil, class: "button" %>
+              <%= submit_tag "Search", name: nil %>
             </div>
+              <!-- <i class= "fi-magnifying-glass large"></i> -->
           </div>
               <% end %>
         </li>

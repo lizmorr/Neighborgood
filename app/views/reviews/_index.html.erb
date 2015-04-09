@@ -1,32 +1,35 @@
 <%= paginate @reviews %>
 <% @reviews.each do |review| %>
   <div class="row">
-    <div class="rating">
-      <p><%= review.rating.to_words.capitalize %>
+    <div class="rating" id="rating.id">
+      <p>
+        <%= review.rating %>
+        <% review.rating.times do %>
          <%= image_tag("star-on.png") %>
+        <% end %>
       </p>
       <p>
         <%= review.description %>
         <%= review.user.email %>
       </p>
-      <ul class="inline-list">
+      <ul class="inline-list" id="vote_links">
         <% if current_user %>
           <% if review.voted_on_by?(current_user) && review.find_vote(current_user).value == 0 %>
-            <li><%= link_to "Upvote", review_upvote_path(review, review.find_vote(current_user)), method: :patch %></li>
-            <li><%= link_to "Downvote", review_downvote_path(review, review.find_vote(current_user)), method: :patch %></li>
+            <li class="upvote"><%= link_to "Upvote", review_upvote_path(review, review.find_vote(current_user)), method: :patch %></li>
+            <li class="downvote"><%= link_to "Downvote", review_downvote_path(review, review.find_vote(current_user)), method: :patch %></li>
           <% elsif review.voted_on_by?(current_user) %>
               Already voted. <li><%= link_to "Cancel.",
               review_vote_path(review, review.find_vote(current_user)), method: :patch %></li>
           <% else %>
-            <li><%= link_to "Upvote", review_upvotes_path(review), method: :post %></li>
-            <li><%= link_to "Downvote", review_downvotes_path(review), method: :post %></li>
+            <li class="upvote"><%= link_to "Upvote", review_upvotes_path(review), method: :post %></li>
+            <li class="downvote"><%= link_to "Downvote", review_downvotes_path(review), method: :post %></li>
           <% end %>
         <% end %>
       </ul>
 
       <p>Votes: <%= review.total_votes %></p>
 
-      <ul class="inline-list">
+      <ul class="inline-list" id="edit_links">
         <% if review.editable_by?(current_user) %>
           <li><%= link_to "Edit Review", edit_neighborhood_review_path(review.neighborhood, review)  %></li>
         <% end %>

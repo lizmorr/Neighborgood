@@ -17,15 +17,15 @@ feature "user edits review", %(
 
     click_on "Edit Review"
 
-    choose "2"
+    select("2", from: "Rating")
     fill_in "Review", with: "This sucks."
     click_on "Edit Review"
 
-    within("\#review_#{review.id} .rating") do
+    within(".rating") do
       expect(page).to have_content("2")
       expect(page).to_not have_content(review.rating)
     end
-    within("\#review_#{review.id}") do
+    within(".rating") do
       expect(page).to have_content("This sucks.")
       expect(page).to_not have_content(review.description)
     end
@@ -42,7 +42,7 @@ feature "user edits review", %(
 
     click_on "Edit Review"
 
-    choose "2"
+    select("2", from: "Rating")
     fill_in "Review", with: ""
     click_on "Edit Review"
 

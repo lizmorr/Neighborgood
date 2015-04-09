@@ -22,16 +22,16 @@ feature "user can delete reviews", %(
 
     expect(page).to have_content("Review deleted")
 
-    within(".review .rating") do
+    within(".rating .inline-list#edit_links") do
       expect(page).to_not have_content(review.rating)
     end
-    within(".review") do
+    within(".rating") do
       expect(page).to_not have_content(review.description)
     end
 
   end
 
-  scenario "a difference user cannot delete review" do
+  scenario "a different user cannot delete review" do
     neighborhood = FactoryGirl.create(:neighborhood)
     user = FactoryGirl.create(:user)
     FactoryGirl.create(:review, user: user, neighborhood: neighborhood)

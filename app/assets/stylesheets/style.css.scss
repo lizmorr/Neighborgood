@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400);
+@import 'foundation-icons';
 
 nav.top-bar {
   height: 4em;
@@ -41,8 +42,7 @@ nav.top-bar {
 }
 
 .top-bar .left li .button {
-  font-family: Lato;
-  background-color: #41A5B2;
+  background-image: url("mag.png");
 }
 
 nav.top-bar ul.right li a:hover {
@@ -90,10 +90,6 @@ fieldset.tagline {
   vertical-align: middle;
 }
 
-.row .row {
-  width: 100%;
-}
-
 .labelrow {
   font-family: Lato;
   color: #FFF;
@@ -102,7 +98,6 @@ fieldset.tagline {
   top: 41%;
   width: 100%;
 }
-
 
 .labelrow a {
   font-family: Pacifico;

@@ -8,8 +8,8 @@ class ReviewsController < ApplicationController
 
   def create
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
-    @review = Review.create(review_params)
-    @review.rating = params["score"]
+    @review = Review.new(review_params)
+    @review.rating ||= params["score"]
     @review.neighborhood = @neighborhood
     @review.user = current_user
 
