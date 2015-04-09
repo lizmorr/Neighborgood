@@ -13,7 +13,7 @@ class Neighborhood < ActiveRecord::Base
   ratyrate_rateable 'neighborhood'
 
   def editable_by?(user)
-    user == self.user
+    user == self.user || user.try(:admin?)
   end
 
   def destroyable_by?(user)

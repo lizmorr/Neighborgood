@@ -7,7 +7,7 @@
     <div class="small-5 columns" id="neighborhood_info">
       <h4><%= @neighborhood.location %></h4>
       <p><%= @neighborhood.description %></p>
-      <% if current_user == @neighborhood.user %>
+      <% if @neighborhood.editable_by?(current_user) %>
         <%= link_to "Edit Page", edit_neighborhood_path(@neighborhood) %>
       <% end %>
     </div>
