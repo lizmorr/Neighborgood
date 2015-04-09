@@ -1,17 +1,17 @@
 module Admin
   class UsersController < ApplicationController
+    def edit
+      @user = User.find(params[:id])
+    end
+
     def update
       @user = User.find(params[:id])
-      if @user.editable_by?(current_user)
-        if @user.admin?
-          @user.set_member
-          flash[:notice] = "User Demoted to Member!"
-          redirect_to admin_neighborhoods_path
-        else
-          @user.set_admin
-          flash[:notice] = "User Promoted to Admin!"
-          redirect_to admin_neighborhoods_path
-        end
+      if @user.update_attributes(user_params)
+        flash[:notice] = "User updated!"
+        redirect_to admin_neighborhoods_path
+      else
+        flash[:alert] = @user.errors.full_messages.join("\n")
+        redirect_to admin_neighborhoods_path
       end
     end
 
@@ -22,6 +22,12 @@ module Admin
         flash[:notice] = "User has been deleted"
         redirect_to admin_neighborhoods_path
       end
+    end
+
+    protected
+    
+    def user_params
+      params.require(:user).permit(:role, :image)
     end
   end
 end

@@ -1,0 +1,19 @@
+<div class="small-12 columns">
+  <h1>Edit <%= @user.email %><h2>
+
+  <%= form_for(@user,
+        url: [:admin, @user],
+        html: { multipart: true}) do |f| %>
+
+    <%= f.radio_button(:role, "member") %>
+    <%= f.label(:role_member, "Member") %>
+
+    <%= f.radio_button(:role, "admin") %>
+    <%= f.label(:role_admin, "Admin") %>
+
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+
+    <%= f.submit "Edit User" %>
+  <% end %>
+</div>

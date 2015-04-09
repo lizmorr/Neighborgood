@@ -15,10 +15,15 @@ feature "admin can change user's role", %{
     visit admin_neighborhoods_path
 
     within("\#user_#{user.id}") do
-      click_on "Promote this User"
+      click_on "Edit this User"
     end
 
-    expect(page).to have_content("User Promoted to Admin!")
+    choose "Admin"
+    attach_file("user_image",
+      "#{Rails.root}/spec/fixtures/Stonehenge.jpg")
+    click_on "Edit User"
+
+    expect(page).to have_content("User updated!")
   end
 
   scenario "admin demotes user" do
@@ -30,9 +35,14 @@ feature "admin can change user's role", %{
     visit admin_neighborhoods_path
 
     within("\#user_#{another_admin.id}") do
-      click_on "Demote this User"
+      click_on "Edit this User"
     end
 
-    expect(page).to have_content("User Demoted to Member!")
+    choose "Member"
+    attach_file("user_image",
+      "#{Rails.root}/spec/fixtures/Stonehenge.jpg")
+    click_on "Edit User"
+
+    expect(page).to have_content("User updated!")
   end
 end
