@@ -28,7 +28,7 @@
 
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
-      <div class="text"><%= value %></div>
+      <div class="text"><%= value.html_safe %></div>
     </div>
   <%- end -%>
 

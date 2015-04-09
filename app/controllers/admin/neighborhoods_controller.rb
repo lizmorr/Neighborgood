@@ -17,7 +17,7 @@ module Admin
       if @neighborhood.save
         redirect_to admin_neighborhoods_path, notice: "Neighborhood Added!"
       else
-        flash.now[:alert] = @neighborhood.errors.full_messages.join("\n")
+        @errors = @neighborhood.errors.full_messages
         render :index
       end
     end

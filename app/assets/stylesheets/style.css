@@ -38,8 +38,12 @@ nav.top-bar ul.right li a:hover {
   text-decoration: none;
 }
 
-.flash.flash-alert {
+.errors {
   background-color: #FFF182;
+}
+
+.errors ul {
+  padding: 1.5em;
 }
 
 .flash.flash-notice {
