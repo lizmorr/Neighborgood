@@ -12,7 +12,7 @@ feature "user can upvote a review", %(
 
     visit neighborhood_path(review.neighborhood)
 
-    first('.review').click_on "Upvote"
+    first('.review').find('.vote_icon #u_icon a').click
 
     expect(page).to have_content("Success!")
     expect(page).to have_content("Votes: 1")
@@ -27,7 +27,7 @@ feature "user can upvote a review", %(
 
     visit neighborhood_path(review.neighborhood)
 
-    first('.review').click_on "Downvote"
+    first('.review').find('.vote_icon #d_icon a').click
 
     expect(page).to have_content("Success!")
     expect(page).to have_content("Votes: -1")
@@ -46,7 +46,7 @@ feature "user can upvote a review", %(
 
     expect(page).to have_content("Votes: #{number}")
 
-    first('.review').click_on "Downvote"
+    first('.review').find('.vote_icon #d_icon a').click
 
     visit neighborhood_path(review.neighborhood)
 
@@ -66,7 +66,7 @@ feature "user can upvote a review", %(
 
     expect(page).to have_content("Votes: #{number}")
 
-    first('.review').click_on "Upvote"
+    first('.review').find('.vote_icon #u_icon a').click
 
     visit neighborhood_path(review.neighborhood)
 
@@ -93,15 +93,15 @@ feature "user can upvote a review", %(
 
     visit neighborhood_path(review.neighborhood)
 
-    first('.review').click_on "Upvote"
+    first('.review').find('.vote_icon #u_icon a').click
 
     visit neighborhood_path(review.neighborhood)
 
     first('.review').click_on "Cancel."
 
     expect(page).to have_content("Votes: #{number}")
-    expect(page).to have_content ("Upvote")
-    expect(page).to have_content ("Downvote")
+    page.find('.vote_icon #u_icon a')
+    page.find('.vote_icon #d_icon a')
   end
 
   scenario "user cancels downvote" do
@@ -114,14 +114,14 @@ feature "user can upvote a review", %(
 
     visit neighborhood_path(review.neighborhood)
 
-    first('.review').click_on "Downvote"
+    first('.review').find('.vote_icon #d_icon a').click
 
     visit neighborhood_path(review.neighborhood)
 
     first('.review').click_on "Cancel."
 
     expect(page).to have_content("Votes: #{number}")
-    expect(page).to have_content ("Upvote")
-    expect(page).to have_content ("Downvote")
+    page.find('.vote_icon #u_icon a')
+    page.find('.vote_icon #d_icon a')
   end
 end

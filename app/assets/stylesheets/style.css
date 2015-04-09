@@ -50,7 +50,6 @@ nav.top-bar ul.right li a:hover {
   padding: 1.5em;
 }
 
-
 fieldset.tagline {
   padding:50px;
   border: none;
@@ -103,4 +102,16 @@ fieldset.tagline {
   font-family: Lato;
   display: left;
   text-align: center;
+}
+
+#u_icon {
+  padding-left: 4px;
+  width: 15px;
+  height: 25px;
+}
+
+#d_icon {
+  transform:rotate(180deg);
+  width: 15px;
+  height: 15px;
 }
