@@ -19,8 +19,6 @@ feature "admin can change user's role", %{
     end
 
     choose "Admin"
-    attach_file("user_image",
-      "#{Rails.root}/spec/fixtures/Stonehenge.jpg")
     click_on "Edit User"
 
     expect(page).to have_content("User updated!")
@@ -39,8 +37,6 @@ feature "admin can change user's role", %{
     end
 
     choose "Member"
-    attach_file("user_image",
-      "#{Rails.root}/spec/fixtures/Stonehenge.jpg")
     click_on "Edit User"
 
     expect(page).to have_content("User updated!")

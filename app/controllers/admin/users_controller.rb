@@ -9,9 +9,6 @@ module Admin
       if @user.update_attributes(user_params)
         flash[:notice] = "User updated!"
         redirect_to admin_neighborhoods_path
-      else
-        flash[:alert] = @user.errors.full_messages.join("\n")
-        redirect_to admin_neighborhoods_path
       end
     end
 
@@ -26,8 +23,8 @@ module Admin
 
     protected
 
-    def user_params
-      params.require(:user).permit(:role, :image)
-    end
+      def user_params
+        params.require(:user).permit(:role, :image)
+      end
   end
 end
