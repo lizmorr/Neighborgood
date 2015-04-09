@@ -15,14 +15,16 @@
       </ul>
       <ul class="left">
         <li class="searchbox">
-            <%= form_tag neighborhoods_path, method: :get, class: "searchbox-input" do %>
-          <div class="row collapse">
-            <div class="large-8 small-9 columns", id="searchbox">
-              <%= text_field_tag :search, params[:search], placeholder: "Search Neighborhoods" %>
-              <%= submit_tag "Search", name: nil %>
+          <%= form_tag neighborhoods_path, method: :get, class: "searchbox-input" do %>
+            <div class="row collapse">
+              <div class="small-9 columns", id="searchbox">
+                <%= text_field_tag :search, params[:search], placeholder: "Search Neighborhoods" %>
+              </div>
+              <div class="small-3 columns">
+                <%= submit_tag "Search", name: nil %>
+              </div>
             </div>
-          </div>
-              <% end %>
+          <% end %>
         </li>
       </ul>
       <ul class="right">
