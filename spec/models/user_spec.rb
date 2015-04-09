@@ -9,6 +9,8 @@ describe User do
   it { should have_valid(:role).when("admin") }
   it { should_not have_valid(:role).when("Guest") }
 
+  it { should validate_presence_of(:name) }
+
   it 'should validate uniqueness of user' do
     user = FactoryGirl.create(:user)
     user_2 = FactoryGirl.build(:user, email: user.email)

@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   ROLES = %w(member admin)
 
   validates :role, presence: true, inclusion: { in: ROLES }
+  validates :name, presence: true
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
