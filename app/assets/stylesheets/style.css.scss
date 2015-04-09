@@ -154,3 +154,15 @@ fieldset.tagline {
 #ratings_list {
   padding-top: 3em;
 }
+
+#u_icon {
+  padding-left: .31em;
+  width: .6em;
+  height: 1.4em;
+}
+
+#d_icon {
+  transform:rotate(180deg);
+  width: 1em;
+  height: 1em;
+}

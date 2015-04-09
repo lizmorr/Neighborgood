@@ -19,14 +19,34 @@
       <ul class="inline-list" id="vote_links">
         <% if current_user %>
           <% if review.voted_on_by?(current_user) && review.find_vote(current_user).value == 0 %>
-            <li class="upvote"><%= link_to "Upvote", review_upvote_path(review, review.find_vote(current_user)), method: :patch %></li>
-            <li class="downvote"><%= link_to "Downvote", review_downvote_path(review, review.find_vote(current_user)), method: :patch %></li>
+            <div class="vote_icon">
+              <div id="u_icon">
+                <%= link_to review_upvote_path(review, review.find_vote(current_user)), method: :patch do %>
+                  <i class="fi-home small"></i>
+                <% end %>
+              </div>
+              <div id="d_icon">
+                <%= link_to review_downvote_path(review, review.find_vote(current_user)), method: :patch do %>
+                  <i class="fi-home small"></i>
+                <% end %>
+              </div>
+            </div>
           <% elsif review.voted_on_by?(current_user) %>
               Already voted. <li class="cancel"><%= link_to "Cancel.",
               review_vote_path(review, review.find_vote(current_user)), method: :patch %></li>
           <% else %>
-            <li class="upvote"><%= link_to "Upvote", review_upvotes_path(review), method: :post %></li>
-            <li class="downvote"><%= link_to "Downvote", review_downvotes_path(review), method: :post %></li>
+            <div class="vote_icon">
+              <div id="u_icon">
+                <%= link_to review_upvotes_path(review), method: :post do %>
+                  <i class="fi-home small"></i>
+                <% end %>
+              </div>
+              <div id="d_icon">
+                <%= link_to review_downvotes_path(review), method: :post do %>
+                  <i class="fi-home small"></i>
+                <% end %>
+              </div>
+            </div>
           <% end %>
         <% end %>
       </ul>
@@ -43,5 +63,5 @@
       </ul>
     </div>
     </div>
-  </div>
+
 <% end %>
