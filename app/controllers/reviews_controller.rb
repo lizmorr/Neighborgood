@@ -18,19 +18,20 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review added successfully."
       redirect_to neighborhood_path(@neighborhood)
     else
-      flash.now[:alert] = @review.errors.full_messages.join("\n")
+      @errors = @review.errors.full_messages
       render "neighborhoods/show"
     end
   end
 
   def update
     @review = Review.find(params[:id])
+    @neighborhood = Neighborhood.find(params[:neighborhood_id])
     if @review.update(review_params)
       flash[:notice] = "Review updated!"
       redirect_to neighborhood_path(@review.neighborhood_id)
     else
-      flash[:alert] = @review.errors.full_messages.join("\n")
-      redirect_to edit_neighborhood_review_path(@review.neighborhood, @review)
+      @errors = @review.errors.full_messages
+      render :edit
     end
   end
 

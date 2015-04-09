@@ -1,3 +1,5 @@
+<%= render 'shared/errors' if @errors%>
+
 <%= form_for [@neighborhood, @review] do |f| %>
 <%= f.label :rating %>
 <%= f.select :rating, Review::RATING, include_blank: "Please Rate" %>

@@ -47,6 +47,7 @@ feature "user edits review", %(
     select("2", from: "Rating")
     fill_in "Review", with: ""
     click_on "Edit Review"
+
     expect(page).to have_content("Description can't be blank")
   end
 

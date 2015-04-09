@@ -55,6 +55,18 @@ nav.top-bar ul.right li a:hover {
   text-decoration: none;
 }
 
+.errors {
+  background-color: #FFF182;
+}
+
+.errors ul {
+  padding: 1.5em;
+}
+
+.flash.flash-notice {
+  background-color: #41A5B2;
+}
+
 fieldset.tagline {
   padding:50px;
   border: none;

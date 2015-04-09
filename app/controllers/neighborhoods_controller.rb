@@ -32,7 +32,7 @@ class NeighborhoodsController < ApplicationController
       redirect_to neighborhood_path(@neighborhood),
         notice: "Neighborhood Edited!"
     else
-      flash.now[:alert] = @neighborhood.errors.full_messages.join("\n")
+      @errors = @neighborhood.errors.full_messages
       render :edit
     end
   end

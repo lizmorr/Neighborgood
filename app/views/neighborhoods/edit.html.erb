@@ -1,3 +1,5 @@
+<%= render 'shared/errors' if @errors%>
+
 <%= form_for @neighborhood, html: {multipart: true} do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
