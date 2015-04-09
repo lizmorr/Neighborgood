@@ -20,6 +20,11 @@ class User < ActiveRecord::Base
     save
   end
 
+  def set_member
+    self.role = 'member'
+    save
+  end
+
   def destroyable_by?(user)
     user.admin?
   end

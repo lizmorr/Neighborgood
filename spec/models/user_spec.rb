@@ -41,6 +41,16 @@ describe User do
     end
   end
 
+  describe 'set_member' do
+    context 'set user to member' do
+      it 'returns true' do
+        admin = FactoryGirl.create(:admin_user)
+        admin.set_member
+        expect(admin).to_not be_admin
+      end
+    end
+  end
+
   describe 'destroyable_by?' do
     context 'admin signed in' do
       it 'returns true' do
