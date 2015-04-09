@@ -26,14 +26,6 @@ class Review < ActiveRecord::Base
     votes.find_by(user_id: user)
   end
 
-  # def upvoted_by?(user)
-  #   votes.find_by(user_id: user, value: 1)
-  # end
-  #
-  # def downvoted_by?(user)
-  #   votes.find_by(user_id: user, value: -1)
-  # end
-
   def total_votes
     votes.sum(:value)
   end
