@@ -7,9 +7,17 @@
 <div class="row">
   <%= form_tag neighborhoods_path, method: :get, id: "search_form" do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Neighborhoods" %>
-    <%= submit_tag "Search", name: nil %>
+    <%= submit_tag "Search", class: "button success", name: nil %>
   <% end %>
+
+  <ul class="areas">
+    <li><a href="#">some text #</a></li>
+    <li><a href="#">some text #</a></li>
+    <li><a href="#">some text #</a></li>
+  </ul>
 </div>
+
+
 
 <div class="row">
   <%= paginate @neighborhoods %>

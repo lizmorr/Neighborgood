@@ -1,0 +1,20 @@
+@import 'variables';
+@import 'mixins';
+
+ul.areas {
+  border: 1px solid black;
+  li {
+    border: 2px solid yellow;
+  }
+}
+
+ul.areas li a {
+  color: pink;
+  &:hover {
+    color: blue;
+  }
+  &:focus {
+    color: orange;
+  }
+}
+
