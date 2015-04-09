@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review added successfully."
       redirect_to neighborhood_path(@neighborhood)
     else
-      flash[:alert] = @review.errors.full_messages.join("\n")
+      flash.now[:alert] = @review.errors.full_messages.join("\n")
       render "neighborhoods/show"
     end
   end
@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review updated!"
       redirect_to neighborhood_path(@review.neighborhood_id)
     else
-      flash[:alert] = @review.errors.full_messages.join("\n")
+      flash.now[:alert] = @review.errors.full_messages.join("\n")
       redirect_to edit_neighborhood_review_path(@review.neighborhood, @review)
     end
   end
