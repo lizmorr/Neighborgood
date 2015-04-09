@@ -31,7 +31,7 @@ feature "user edits review", %(
     end
   end
 
-  scenario "original reviwer unsuccessfully edits review" do
+  scenario "original reviewer unsuccessfully edits review" do
     user = FactoryGirl.create(:user)
     neighborhood = FactoryGirl.create(:neighborhood)
     FactoryGirl.create(:review, user: user, neighborhood: neighborhood)
@@ -45,7 +45,6 @@ feature "user edits review", %(
     choose "2"
     fill_in "Review", with: ""
     click_on "Edit Review"
-
     expect(page).to have_content("Description can't be blank")
   end
 
