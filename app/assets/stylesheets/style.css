@@ -105,13 +105,13 @@ fieldset.tagline {
 }
 
 #u_icon {
-  padding-left: 4px;
-  width: 15px;
-  height: 25px;
+  padding-left: .31em;
+  width: .6em;
+  height: 1.4em;
 }
 
 #d_icon {
   transform:rotate(180deg);
-  width: 15px;
-  height: 15px;
+  width: 1em;
+  height: 1em;
 }
