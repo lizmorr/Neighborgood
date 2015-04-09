@@ -6,7 +6,7 @@ class Review < ActiveRecord::Base
   has_many :votes
 
   validates :rating, presence: true, inclusion: { in: RATING }
-  validates :description, presence: true, length: { maximum: 20 }
+  validates :description, presence: true, length: { in: 20..200 }
   validates :user, presence: true
   validates :neighborhood, presence: true
 

@@ -20,7 +20,7 @@ FactoryGirl.define do
 
   factory :review do
     rating 5
-    description "This is awesome!"
+    description "This neighborhood is awesome! It really is the prettiest."
     user
     neighborhood
   end
