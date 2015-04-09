@@ -4,6 +4,11 @@
     <div id="user_<%= user.id %>">
       <h2><%= user.email %></h2>
       <p id="delete"><%= link_to "Delete this User", admin_user_path(user), method: :delete %></p>
+      <% if user.admin? %>
+        <p><%= link_to "Demote User", admin_user_path(user), method: :patch %></p>
+      <% else %>
+        <p><%= link_to "Promote User", admin_user_path(user), method: :patch %></p>
+      <% end %>
     </div>
   <% end %>
 <% end %>

@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
     save
   end
 
+  def editable_by?(user)
+    user.admin?
+  end
+
   def destroyable_by?(user)
     user.admin?
   end
