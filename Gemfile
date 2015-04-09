@@ -15,6 +15,7 @@ gem 'fog'
 gem 'ratyrate'
 gem 'to_words'
 gem 'foundation-icons-sass-rails'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'spring'
@@ -26,7 +27,6 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem 'faker'
-  gem 'dotenv-rails'
 end
 
 group :test do

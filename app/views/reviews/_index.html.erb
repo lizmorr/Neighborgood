@@ -1,17 +1,21 @@
 <%= paginate @reviews %>
 <% @reviews.each do |review| %>
   <div class="row">
-    <div class="rating" id="rating.id">
+    <div class="rating">
+
+    <div class="rating_details" id="rating.id">
       <p>
         <%= review.rating %>
         <% review.rating.times do %>
          <%= image_tag("star-on.png") %>
         <% end %>
       </p>
-      <p>
-        <%= review.description %>
-        <%= review.user.email %>
-      </p>
+      <div class="review_details">
+        <p>
+          <%= review.description %>
+          <%= review.user.email %>
+        </p>
+      </div>
       <ul class="inline-list" id="vote_links">
         <% if current_user %>
           <% if review.voted_on_by?(current_user) && review.find_vote(current_user).value == 0 %>
@@ -37,6 +41,7 @@
           <li><%= link_to "Delete Review", neighborhood_review_path(review.neighborhood, review), method: :delete %></li>
         <% end %>
       </ul>
+    </div>
     </div>
   </div>
 <% end %>
