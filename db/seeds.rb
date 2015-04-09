@@ -13,7 +13,7 @@ if Rails.env.development?
     # user.password_confirmation = "password123"
   end
 
-  5.times do
+  15.times do
     user = User.new(
       name: Faker::Name.name,
       email: Faker::Internet.email,
@@ -25,14 +25,12 @@ if Rails.env.development?
     end
   end
 
-user_count = (2..User.all.count)
-
-  15.times do
+  20.times do
     neighborhood = Neighborhood.new(
       name: Faker::Address.city,
       location: %w(North Northeast East South Southwest Southeast West).sample,
       description: Faker::Lorem.paragraph(1, false),
-      user_id: rand(user_count),
+      user_id: rand(2..User.all.count),
       created_at: Faker::Time.between(2.days.ago, Time.now),
       updated_at: Faker::Time.between(1.days.ago, Time.now)
     )
@@ -41,11 +39,11 @@ user_count = (2..User.all.count)
     end
   end
 
-  10.times do
+  5.times do
     review = Review.new(
       rating: rand(1..5),
       description: Faker::Lorem.sentence,
-      user_id: rand(user_count),
+      user_id: rand(2..User.all.count),
       neighborhood_id: rand(1..Neighborhood.all.count),
       created_at: Faker::Time.between(2.days.ago, Time.now),
       updated_at: Faker::Time.between(1.days.ago, Time.now)
@@ -55,16 +53,14 @@ user_count = (2..User.all.count)
     end
   end
 
-  User.find(user_count.to_a).each do |user|
-    Review.all.each do |review|
-      vote = Vote.new(
-        user_id: user.id,
-        review_id: review.id,
-        value: [-1, 0, 1].sample
-      )
-      if vote.valid?
-        vote.save!
-      end
+  10.times do
+    vote = Vote.new(
+      user_id: rand(2..User.all.count),
+      review_id: rand(1..Review.all.count),
+      value: [-1, 0, 1].sample
+    )
+    if vote.valid?
+      vote.save!
     end
   end
 end
