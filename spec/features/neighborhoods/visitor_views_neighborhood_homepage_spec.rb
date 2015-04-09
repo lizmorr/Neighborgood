@@ -15,10 +15,10 @@ feature 'visitor views neighborgood homepage', %(
   end
 
   scenario 'visitor sees 10 neighborhoods per page' do
-    10.times do |n|
+    9.times do |n|
       FactoryGirl.create(:neighborhood, name: "Hip#{n}")
     end
-    10.times do |n|
+    9.times do |n|
       FactoryGirl.create(:neighborhood, name: "Pretty#{n}")
     end
 

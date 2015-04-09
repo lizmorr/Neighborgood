@@ -1,12 +1,19 @@
-<h1><%= @neighborhood.name %></h1>
-<p><%= @neighborhood.location %></p>
-<p><%= @neighborhood.description %></p>
+<div class="row" id="neighborhood">
+    <div class="small-7 columns" id="neighborhood_header">
+      <h1><%= @neighborhood.name %></h1>
+      <%= image_tag @neighborhood.image_url.to_s %>
+    </div>
 
-<% if current_user == @neighborhood.user %>
-  <%= link_to "Edit Page", edit_neighborhood_path(@neighborhood) %>
-<% end %>
-<%= image_tag @neighborhood.image_url.to_s %>
+    <div class="small-5 columns" id="neighborhood_info">
+      <h4><%= @neighborhood.location %></h4>
+      <p><%= @neighborhood.description %></p>
+      <% if current_user == @neighborhood.user %>
+        <%= link_to "Edit Page", edit_neighborhood_path(@neighborhood) %>
+      <% end %>
+    </div>
 
-<%= render "reviews/index" if @reviews %>
-
-<%= render "reviews/new" %>
+    <div class="small-12 columns" id="ratings_list">
+      <%= render "reviews/index" if @reviews %>
+      <%= render "reviews/new" %>
+    </div>
+</div>

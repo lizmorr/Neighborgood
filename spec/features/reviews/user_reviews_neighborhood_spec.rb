@@ -14,7 +14,7 @@ feature "user reviews a neighborhood", %(
 
     visit neighborhood_path(neighborhood)
 
-    choose "5"
+    select("5", from: "Rating")
     fill_in "Review", with: "This neighborhood is super pretty. <3."
 
     click_on "Add Review"
@@ -48,7 +48,7 @@ feature "user reviews a neighborhood", %(
 
     visit neighborhood_path(neighborhood)
 
-    choose "5"
+    select("5", from: "Rating")
     fill_in "Review", with: "x" * 220
 
     click_on "Add Review"
@@ -62,7 +62,7 @@ feature "user reviews a neighborhood", %(
 
     visit neighborhood_path(neighborhood)
 
-    choose "5"
+    select("5", from: "Rating")
     fill_in "Review", with: "This neighborhood."
 
     click_on "Add Review"

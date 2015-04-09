@@ -9,7 +9,7 @@ feature 'user can search by neighborhood' do
     visit neighborhoods_path
 
     fill_in 'Search Neighborhoods', with: "one"
-    click_on "Search"
+    click_button "Search"
 
     expect(page).to have_content("One Neighborhood")
     expect(page).to_not have_content("Two Neighborhood")
@@ -22,7 +22,7 @@ feature 'user can search by neighborhood' do
     visit neighborhoods_path
 
     fill_in 'Search Neighborhoods', with: "Three"
-    click_on "Search"
+    click_button "Search"
 
     expect(page).to have_content("One Neighborhood")
     expect(page).to have_content("Two Neighborhood")

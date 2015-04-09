@@ -10,6 +10,8 @@ class Neighborhood < ActiveRecord::Base
   validates :description, length: { in: 2..40 }, allow_blank: true
   validates :user, presence: true
 
+  ratyrate_rateable 'neighborhood'
+
   def editable_by?(user)
     user == self.user
   end
@@ -19,7 +21,7 @@ class Neighborhood < ActiveRecord::Base
   end
 
   def self.order_by_name(page)
-    order(:name).page(page).per(10)
+    order(:name).page(page).per(9)
   end
 
   def self.search(search)

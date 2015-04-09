@@ -1,0 +1,144 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400);
+@import 'foundation-icons';
+
+nav.top-bar {
+  height: 4em;
+  background:rgba(0,0,0,0.5);
+  background: #ff69b4;
+}
+
+.top-bar ul li h1 a {
+  font-family: Pacifico;
+  font-size: 1.6em;
+  margin: .3em;
+  color: #FFF;
+}
+
+.top-bar .right li {
+  font-family: Pacifico;
+  font-size: 1em;
+  display: inline-block;
+  padding-right: 15px;
+  padding-top: 10px;
+  margin-top: .6em;
+}
+
+.top-bar .right li a {
+  color: #FFF;
+}
+
+.top-bar .right li img {
+  border-radius: 35px;
+}
+
+.top-bar .left li {
+  font-family: Lato;
+  font-size: 1em;
+  display: inline-block;
+  padding-right: 15px;
+  padding-top: 10px;
+  margin-bottom: .3em;
+}
+
+.top-bar ul.left li.searchbox .search_button {
+  background-color: #ff69b4;
+}
+
+.top-bar ul.left li.searchbox span.searchbox-icon {
+  font-size: 3em;
+}
+
+nav.top-bar ul.right li a:hover {
+  background-color: none;
+  background: none;
+  text-decoration: none;
+}
+
+fieldset.tagline {
+  padding:50px;
+  border: none;
+  margin: 0rem;
+}
+
+.neigh h1 {
+  font-family: Lato;
+  color: #000;
+  font-size: 6em;
+  text-align: center;
+}
+
+.hood h1 {
+  font-family: Lato;
+  color: #000;
+  font-size: 6em;
+  text-align: center;
+  font-weight: 300;
+  margin-top: -40px;
+}
+
+.row .large-4 {
+  display: inline-block;
+}
+
+#neighborhood_list {
+  padding: 1em;
+}
+
+#neighborhood_list img {
+  border-radius: 10px;
+}
+
+.columns {
+  position: relative;
+  vertical-align: middle;
+}
+
+.labelrow {
+  font-family: Lato;
+  color: #FFF;
+  position: absolute;
+  text-align: center;
+  top: 41%;
+  width: 100%;
+}
+
+.labelrow a {
+  font-family: Pacifico;
+  color: #ff69b4;
+  font-size: 2em;
+  text-align: center;
+}
+
+.rating {
+  border: .15em solid #41A5B2;
+  padding: .7em;
+  margin: .8em;
+  -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.rating ul {
+  list-style-type: none;
+}
+
+.row #neighborhood_info {
+  float: left;
+}
+
+#neighborhood {
+  padding-top: 4em;
+  font-family: Lato;
+}
+
+#neighborhood h1 {
+  font-family: Lato;
+}
+
+#neighborhood_info {
+  padding-top: 4em;
+}
+
+#ratings_list {
+  padding-top: 3em;
+}
