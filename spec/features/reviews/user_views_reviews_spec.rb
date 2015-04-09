@@ -11,7 +11,8 @@ feature "user views all reviews for neighborhood", %(
     old_review = FactoryGirl.create(:review,
       neighborhood: neighborhood, created_at: 5.days.ago)
     new_review = FactoryGirl.create(:review,
-      description: "The coolest neighborhood around", neighborhood: neighborhood)
+      description: "The coolest neighborhood around",
+      neighborhood: neighborhood)
 
     visit neighborhood_path(neighborhood)
 

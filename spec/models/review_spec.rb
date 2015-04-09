@@ -12,7 +12,7 @@ describe Review do
   it { should_not have_valid(:rating).when(6) }
 
   it { should have_valid(:description).when("This neighborhood is the best!!") }
-  it { should_not have_valid(:description).when(nil, "", "hi", "d"*330) }
+  it { should_not have_valid(:description).when(nil, "", "hi", "d" * 330) }
 
   describe 'editable_by?' do
     context 'review user signed in' do
