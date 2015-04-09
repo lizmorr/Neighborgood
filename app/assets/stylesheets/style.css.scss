@@ -41,8 +41,12 @@ nav.top-bar {
   margin-bottom: .3em;
 }
 
-.top-bar .left li .button {
-  background-image: url("mag.png");
+.top-bar ul.left li.searchbox .search_button {
+  background-color: #ff69b4;
+}
+
+.top-bar ul.left li.searchbox span.searchbox-icon {
+  font-size: 3em;
 }
 
 nav.top-bar ul.right li a:hover {
