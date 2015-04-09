@@ -33,7 +33,6 @@ class NeighborhoodsController < ApplicationController
         notice: "Neighborhood Edited!"
     else
       @errors = @neighborhood.errors.full_messages
-      binding.pry
       render :edit
     end
   end

@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
       redirect_to neighborhood_path(@review.neighborhood_id)
     else
       @errors = @review.errors.full_messages
-      redirect_to edit_neighborhood_review_path(@review.neighborhood, @review)
+      render :edit
     end
   end
 
