@@ -15,13 +15,13 @@ feature "user reviews a neighborhood", %(
     visit neighborhood_path(neighborhood)
 
     choose "5"
-    fill_in "Review", with: "This neighborhood."
+    fill_in "Review", with: "This neighborhood is super pretty. I heart it."
 
     click_on "Add Review"
 
     expect(page).to have_content("Review added successfully.")
     expect(page).to have_content("5")
-    expect(page).to have_content("This neighborhood.")
+    expect(page).to have_content("This neighborhood is super pretty. I heart it.")
     expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
@@ -49,7 +49,7 @@ feature "user reviews a neighborhood", %(
     visit neighborhood_path(neighborhood)
 
     choose "5"
-    fill_in "Review", with: "x" * 22
+    fill_in "Review", with: "x" * 220
 
     click_on "Add Review"
 

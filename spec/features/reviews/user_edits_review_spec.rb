@@ -18,7 +18,7 @@ feature "user edits review", %(
     click_on "Edit Review"
 
     choose "2"
-    fill_in "Review", with: "This sucks."
+    fill_in "Review", with: "This neighborhood is not as good as I remembered."
     click_on "Edit Review"
 
     within("\#review_#{review.id} .rating") do
@@ -26,7 +26,7 @@ feature "user edits review", %(
       expect(page).to_not have_content(review.rating)
     end
     within("\#review_#{review.id}") do
-      expect(page).to have_content("This sucks.")
+      expect(page).to have_content("This neighborhood is not as good as I remembered.")
       expect(page).to_not have_content(review.description)
     end
   end

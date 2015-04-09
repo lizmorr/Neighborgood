@@ -11,7 +11,7 @@ feature "user views all reviews for neighborhood", %(
     old_review = FactoryGirl.create(:review,
       neighborhood: neighborhood, created_at: 5.days.ago)
     new_review = FactoryGirl.create(:review,
-      description: "So cool", neighborhood: neighborhood)
+      description: "The coolest neighborhood around", neighborhood: neighborhood)
 
     visit neighborhood_path(neighborhood)
 
@@ -35,23 +35,23 @@ feature "user views all reviews for neighborhood", %(
     25.times do
       FactoryGirl.create(
         :review,
-        description: "Awesome!",
+        description: "This is the greatest!!",
         created_at: 5.days.ago,
         neighborhood: neighborhood
       )
     end
     25.times do
       FactoryGirl.create(:review,
-        description: "Great!",
+        description: "Really good food around here!",
         neighborhood: neighborhood
       )
     end
     visit neighborhood_path(neighborhood)
-    expect(page).to have_content("Great!")
-    expect(page).to_not have_content("Awesome!")
+    expect(page).to have_content("Really good food around here!")
+    expect(page).to_not have_content("This is the greatest!!")
 
     click_link("2")
-    expect(page).to have_content("Awesome!")
-    expect(page).to_not have_content("Great!")
+    expect(page).to have_content("This is the greatest!!")
+    expect(page).to_not have_content("Really good food around here!")
   end
 end
