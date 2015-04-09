@@ -15,16 +15,6 @@ class User < ActiveRecord::Base
     role == 'admin'
   end
 
-  def set_admin
-    self.role = 'admin'
-    save
-  end
-
-  def set_member
-    self.role = 'member'
-    save
-  end
-
   def editable_by?(user)
     user.admin?
   end
