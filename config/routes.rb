@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :neighborhoods, only: [:index, :create, :destroy]
-    resources :users, only: [:destroy]
+    resources :users, only: [:edit, :update, :destroy]
   end
 
   resources :neighborhoods, except: [:new, :create, :destroy] do

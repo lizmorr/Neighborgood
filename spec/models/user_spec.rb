@@ -31,12 +31,20 @@ describe User do
     end
   end
 
-  describe 'set_admin' do
-    context 'set user to admin' do
+  describe 'editable_by?' do
+    context 'admin signed in' do
       it 'returns true' do
+        admin = FactoryGirl.create(:admin_user)
         user = FactoryGirl.create(:user)
-        user.set_admin
-        expect(user).to be_admin
+        expect(user.editable_by?(admin)).to eq true
+      end
+    end
+
+    context 'user signed in' do
+      it 'returns false' do
+        user = FactoryGirl.create(:user)
+        another_user = FactoryGirl.create(:user)
+        expect(another_user.editable_by?(user)).to eq false
       end
     end
   end
