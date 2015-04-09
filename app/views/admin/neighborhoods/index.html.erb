@@ -1,23 +1,23 @@
-<h1>Neighborhoods of Boston</h1>
+<div class="small-12 columns">
+  <h1>Neighborhoods of Boston</h1>
+</div>
 
-<div class="row">
+<div class="small-12 columns">
   <h4>Add a Neighborhood</h4>
   <%= render "new" %>
 </div>
 
-<div class="row">
-  <div class="small-6 columns">
-    <% if @neighborhoods %>
-      <%= paginate @neighborhoods %>
-      <% @neighborhoods.each do |neighborhood| %>
-        <h2><%= link_to neighborhood.name, neighborhood_path(neighborhood) %></h2>
-        <p><%= neighborhood.location %></p>
-        <p id="delete"><%= link_to "Delete this Neighborhood", admin_neighborhood_path(neighborhood), method: :delete %></p>
-      <% end %>
+<div class="small-6 columns">
+  <% if @neighborhoods %>
+    <%= paginate @neighborhoods %>
+    <% @neighborhoods.each do |neighborhood| %>
+      <h2><%= link_to neighborhood.name, neighborhood_path(neighborhood) %></h2>
+      <p><%= neighborhood.location %></p>
+      <p id="delete"><%= link_to "Delete this Neighborhood", admin_neighborhood_path(neighborhood), method: :delete %></p>
     <% end %>
-  </div>
+  <% end %>
+</div>
 
-  <div class="small-6 columns">
-    <%= render "admin/users/index" %>
-  </div>
+<div class="small-6 columns">
+  <%= render "admin/users/index" %>
 </div>

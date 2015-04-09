@@ -2,13 +2,20 @@
   <%= paginate @users %>
   <% @users.each do |user| %>
     <div id="user_<%= user.id %>">
-      <h2><%= user.email %></h2>
-      <p id="delete"><%= link_to "Delete this User", admin_user_path(user), method: :delete %></p>
-      <% if user.admin? %>
-        <p><%= link_to "Demote User", admin_user_path(user), method: :patch %></p>
-      <% else %>
-        <p><%= link_to "Promote User", admin_user_path(user), method: :patch %></p>
-      <% end %>
+        <h2><%= user.email %></h2>
+        <div class="small-6 columns">
+          <% if user.admin? %>
+            <%= link_to "Demote this User", admin_user_path(user), method: :patch %>
+          <% else %>
+            <%= link_to "Promote this User", admin_user_path(user), method: :patch %>
+          <% end %>
+        </div>
+
+        <div class="small-6 columns">
+          <div id="delete">
+            <%= link_to "Delete this User", admin_user_path(user), method: :delete %>
+          </div>
+        </div>
     </div>
   <% end %>
 <% end %>
