@@ -3,56 +3,33 @@
   <div class="row">
     <div class="rating">
 
-    <div class="rating_details" id="rating.id">
-      <p>
-        <%= review.rating %>
-        <% review.rating.times do %>
-         <%= image_tag("star-on.png") %>
-        <% end %>
-      </p>
-    </div>
-      <div class="review_details">
-        <p>
-          <strong><%= review.user.username %></strong>
-          <%= review.description %>
-        </p>
-      </div>
+      <ul class="inline-list" id="review_details">
+        <li class="profile-picture"><%= image_tag review.user.image.url, size: "60x60" %></li>
+        <li class="review_description"><%= review.description %></li>
+      </ul>
+
+      <ul class="inline-list">
+         <% review.rating.times do %>
+         <li><%= image_tag("star-on.png") %></li>
+         <% end %>
+      </ul>
+
       <ul class="inline-list" id="vote_links">
         <% if current_user %>
           <% if review.voted_on_by?(current_user) && review.find_vote(current_user).value == 0 %>
-            <div class="vote_icon">
-              <div id="u_icon">
-                <%= link_to review_upvote_path(review, review.find_vote(current_user)), method: :patch do %>
-                  <i class="fi-home small"></i>
-                <% end %>
-              </div>
-              <div id="d_icon">
-                <%= link_to review_downvote_path(review, review.find_vote(current_user)), method: :patch do %>
-                  <i class="fi-home small"></i>
-                <% end %>
-              </div>
-            </div>
+            <li class="upvote"><%= link_to "Upvote", review_upvote_path(review, review.find_vote(current_user)), method: :patch %></li>
+            <li class="downvote"><%= link_to "Downvote", review_downvote_path(review, review.find_vote(current_user)), method: :patch %></li>
           <% elsif review.voted_on_by?(current_user) %>
               Already voted. <li class="cancel"><%= link_to "Cancel.",
               review_vote_path(review, review.find_vote(current_user)), method: :patch %></li>
           <% else %>
-            <div class="vote_icon">
-              <div id="u_icon">
-                <%= link_to review_upvotes_path(review), method: :post do %>
-                  <i class="fi-home small"></i>
-                <% end %>
-              </div>
-              <div id="d_icon">
-                <%= link_to review_downvotes_path(review), method: :post do %>
-                  <i class="fi-home small"></i>
-                <% end %>
-              </div>
-            </div>
+            <li class="upvote"><%= link_to "Upvote", review_upvotes_path(review), method: :post %></li>
+            <li class="downvote"><%= link_to "Downvote", review_downvotes_path(review), method: :post %></li>
           <% end %>
         <% end %>
       </ul>
 
-      <p>Votes: <%= review.total_votes %></p>
+      <p id="vote_count">Votes: <%= review.total_votes %></p>
 
       <ul class="inline-list" id="edit_links">
         <% if review.editable_by?(current_user) %>
@@ -63,6 +40,5 @@
         <% end %>
       </ul>
     </div>
-    </div>
-
+  </div>
 <% end %>

@@ -1,6 +1,44 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400);
 @import 'foundation-icons';
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.row .row {
+  width: 100%;
+}
+
+.fa-star-o {
+  font-size: 2em;
+}
+
+.fa-star {
+  font-size: 2em;
+  color: #41A5B2;
+}
+
+.button {
+  font-family: Lato;
+  background-color: #41A5B2;
+}
+
+.top-bar .left .fi-magnifying-glass {
+  font-size: 2.5em;
+  color: #FFFFFF;
+}
+
+.top-bar .left #search-box .button {
+  background-color: #41A5B2;
+}
+
+.top-bar .left #search-box {
+  margin-top: .5em;
+  font-family: Lato;
+}
+
+.top-bar .left #search-icon {
+  margin-bottom: 10px;
+}
 
 nav.top-bar {
   height: 4em;
@@ -130,19 +168,29 @@ fieldset.tagline {
 }
 
 .rating {
-  border: .15em solid #41A5B2;
-  padding: .7em;
-  margin: .8em;
-  -moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+  border-bottom: 0.15em solid #41A5B2;
+  padding-top: 1em;
 }
 
 .rating ul {
   list-style-type: none;
 }
 
-.row #neighborhood_info {
-  float: left;
+.rating #review_details img {
+  border-radius: 35px;
+}
+
+.rating #vote_count {
+  font-family: Pacifico;
+}
+
+#ratings_list {
+  padding: 2em;
+}
+
+#neighborhood_header #neighborhood_info {
+  font-size: 1em;
+  padding-top: 8.4em;
 }
 
 #neighborhood {
@@ -150,26 +198,42 @@ fieldset.tagline {
   font-family: Lato;
 }
 
-#neighborhood h1 {
-  font-family: Lato;
+#neighborhood .one_neighborhood {
+  width: 100%;
 }
 
-#neighborhood_info {
-  padding-top: 4em;
+#neighborhood h1 {
+  font-family: Lato;
 }
 
 #ratings_list {
   padding-top: 3em;
 }
 
-#u_icon {
-  padding-left: .31em;
-  width: .6em;
-  height: 1.4em;
+#contributors {
+  border: #B23875 solid 0.2em;
+  border-radius: .4em;
+  margin-top: 4em;
+  margin-bottom: 4em;
+  height: 20em;
+  background-image: url("boston.png");
 }
 
-#d_icon {
-  transform:rotate(180deg);
-  width: 1em;
-  height: 1em;
+#contributors p {
+  text-align: center;
+  font-size: 3em;
+  font-family: Pacifico;
+  color: #000000;
+  margin-top: 1em;
+}
+
+#contributors #pics img {
+  border-radius: 60px;
+  border: #B23875 solid 0.2em;
+}
+
+#contributors #pics {
+  width: 100%;
+  margin-top: 1em;
+  margin-left: 11em;
 }

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature "user can upvote a review", %(
-
 ) do
 
   scenario "user upvotes successfully" do
@@ -12,7 +11,7 @@ feature "user can upvote a review", %(
 
     visit neighborhood_path(review.neighborhood)
 
-    first('.rating .inline-list#vote_links').find('.vote_icon #u_icon a').click
+    first('.rating .inline-list#vote_links .upvote').click_on "Upvote"
 
     expect(page).to have_content("Success!")
     expect(page).to have_content("Votes: 1")
@@ -27,7 +26,7 @@ feature "user can upvote a review", %(
 
     visit neighborhood_path(review.neighborhood)
 
-    first('.rating .inline-list#vote_links').find('.vote_icon #d_icon a').click
+    first('.rating .inline-list#vote_links .downvote').click_on "Downvote"
 
     expect(page).to have_content("Success!")
     expect(page).to have_content("Votes: -1")
@@ -46,7 +45,7 @@ feature "user can upvote a review", %(
 
     expect(page).to have_content("Votes: #{number}")
 
-    first('.rating .inline-list#vote_links').find('.vote_icon #d_icon a').click
+    first('.rating .inline-list#vote_links .downvote').click_on "Downvote"
 
     visit neighborhood_path(review.neighborhood)
 
@@ -66,7 +65,7 @@ feature "user can upvote a review", %(
 
     expect(page).to have_content("Votes: #{number}")
 
-    first('.rating .inline-list#vote_links').find('.vote_icon #u_icon a').click
+    first('.rating .inline-list#vote_links .upvote').click_on "Upvote"
 
     visit neighborhood_path(review.neighborhood)
 
@@ -91,17 +90,17 @@ feature "user can upvote a review", %(
     number = review.total_votes
 
     visit neighborhood_path(review.neighborhood)
-
-    first('.rating .inline-list#vote_links').find('.vote_icon #u_icon a').click
+    first('.rating .inline-list#vote_links .upvote').click_on "Upvote"
 
     visit neighborhood_path(review.neighborhood)
     first('.rating .inline-list#vote_links .cancel').click_on "Cancel"
 
-    first('.rating .inline-list#vote_links').find('.vote_icon #d_icon a').click
+    first('.rating .inline-list#vote_links .downvote').click_on "Downvote"
 
     expect(page).to have_content("Success!")
     expect(page).to have_content("Votes: #{number - 1}")
-    expect(page).to have_content("Already voted. Cancel.")
+    expect(page).to_not have_content("Upvote")
+    expect(page).to_not have_content("Downvote")
   end
 
   scenario "user changes downvote to upvote" do
@@ -112,16 +111,16 @@ feature "user can upvote a review", %(
     number = review.total_votes
 
     visit neighborhood_path(review.neighborhood)
-
-    first('.rating .inline-list#vote_links').find('.vote_icon #d_icon a').click
+    first('.rating .inline-list#vote_links .downvote').click_on "Downvote"
 
     visit neighborhood_path(review.neighborhood)
     first('.rating .inline-list#vote_links .cancel').click_on "Cancel."
 
-    first('.rating .inline-list#vote_links').find('.vote_icon #u_icon a').click
+    first('.rating .inline-list#vote_links .upvote').click_on "Upvote"
 
     expect(page).to have_content("Success!")
     expect(page).to have_content("Votes: #{number + 1}")
-    expect(page).to have_content("Already voted. Cancel.")
+    expect(page).to_not have_content("Upvote")
+    expect(page).to_not have_content("Downvote")
   end
 end

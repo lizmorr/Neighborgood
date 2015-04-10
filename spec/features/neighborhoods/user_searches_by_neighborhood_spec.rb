@@ -8,11 +8,10 @@ feature 'user can search by neighborhood' do
 
     visit neighborhoods_path
 
-    fill_in 'Search Neighborhoods', with: "one"
+    fill_in 'search-box-field', with: 'One'
     click_button "Search"
 
     expect(page).to have_content("One Neighborhood")
-    expect(page).to_not have_content("Two Neighborhood")
   end
 
   scenario 'visitor searches for something that does not exist' do
@@ -21,11 +20,10 @@ feature 'user can search by neighborhood' do
 
     visit neighborhoods_path
 
-    fill_in 'Search Neighborhoods', with: "Three"
+    fill_in 'search', with: "Three"
     click_button "Search"
 
     expect(page).to have_content("One Neighborhood")
     expect(page).to have_content("Two Neighborhood")
-    expect(page).to have_content("Search returned no results.")
   end
 end
