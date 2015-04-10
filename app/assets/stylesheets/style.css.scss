@@ -131,11 +131,8 @@ fieldset.tagline {
   display: inline-block;
 }
 
-#neighborhood_list {
-  padding: 1em;
-}
-
 #neighborhood-list {
+  padding: 1em;
   img {
     border-radius: 10px;
     filter: alpha(opacity=67);
@@ -216,7 +213,7 @@ fieldset.tagline {
   margin-top: 4em;
   margin-bottom: 4em;
   height: 20em;
-  background-image: url("boston.png");
+  background-image: url("images/boston.png");
 }
 
 #contributors p {
