@@ -2,16 +2,17 @@
   <%= paginate @users %>
   <% @users.each do |user| %>
     <div id="user_<%= user.id %>">
-        <h2><%= user.email %></h2>
-        <div class="small-6 columns">
-          <%= link_to "Edit this User", edit_admin_user_path(user) %>
-        </div>
+      <h2><%= user.username %></h2>
+      <p><%= user.email %></p>
+      <div class="small-6 columns">
+        <%= link_to "Edit this User", edit_admin_user_path(user) %>
+      </div>
 
-        <div class="small-6 columns">
-          <div id="delete">
-            <%= link_to "Delete this User", admin_user_path(user), method: :delete %>
-          </div>
+      <div class="small-6 columns">
+        <div id="delete">
+          <%= link_to "Delete this User", admin_user_path(user), method: :delete %>
         </div>
+      </div>
     </div>
   <% end %>
 <% end %>
