@@ -14,6 +14,6 @@ PW: password
 + [Thomas Seiler](https://github.com/ectomorph314)
 + [Daniel Moore](https://github.com/Dodie324)
 
-###Testing functions
+##Testing functions
 + Rspec & Capybara
 + Mailcatcher
