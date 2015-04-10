@@ -26,9 +26,7 @@ feature "user views all reviews for neighborhood", %(
 
     visit neighborhood_path(neighborhood)
 
-    expect(page).to have_content(review.rating)
     expect(page).to have_content(review.description)
-    expect(page).to have_content(review.user.email)
   end
 
   scenario 'visitor sees 25 reviews per page' do

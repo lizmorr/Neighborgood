@@ -14,13 +14,12 @@ feature "user reviews a neighborhood", %(
 
     visit neighborhood_path(neighborhood)
 
-    select("5", from: "Rating")
+    find(:xpath, "//input[@id='review_rating']").set "1"
     fill_in "Review", with: "This neighborhood is super pretty. <3."
 
     click_on "Add Review"
 
     expect(page).to have_content("Review added successfully.")
-    expect(page).to have_content("5")
     expect(page).to have_content("This neighborhood is super pretty. <3.")
     expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
@@ -48,7 +47,7 @@ feature "user reviews a neighborhood", %(
 
     visit neighborhood_path(neighborhood)
 
-    select("5", from: "Rating")
+    find(:xpath, "//input[@id='review_rating']").set "1"
     fill_in "Review", with: "x" * 220
 
     click_on "Add Review"
@@ -62,7 +61,7 @@ feature "user reviews a neighborhood", %(
 
     visit neighborhood_path(neighborhood)
 
-    select("5", from: "Rating")
+    find(:xpath, "//input[@id='review_rating']").set "1"
     fill_in "Review", with: "This neighborhood."
 
     click_on "Add Review"

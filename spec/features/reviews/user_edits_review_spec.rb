@@ -17,15 +17,10 @@ feature "user edits review", %(
 
     click_on "Edit Review"
 
-    select("2", from: "Rating")
+    find(:xpath, "//input[@id='review_rating']").set "2"
     fill_in "Review", with: "This neighborhood is not what I remember."
 
     click_on "Edit Review"
-
-    within(".rating") do
-      expect(page).to have_content("2")
-      expect(page).to_not have_content(review.rating)
-    end
 
     within(".rating") do
       expect(page).to have_content("This neighborhood is not what I remember.")
@@ -44,7 +39,7 @@ feature "user edits review", %(
 
     click_on "Edit Review"
 
-    select("2", from: "Rating")
+    find(:xpath, "//input[@id='review_rating']").set "2"
     fill_in "Review", with: ""
     click_on "Edit Review"
     expect(page).to have_content("Description can't be blank")

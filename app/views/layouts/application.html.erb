@@ -21,7 +21,7 @@
             <div class="row collapse postfix-round">
                 <div class="small-7 columns">
                   <%= form_tag neighborhoods_path, method: :get, class: "searchbox-input" do %>
-                  <%= text_field_tag :search, params[:search], placeholder: "Search Neighborhoods" %>
+                  <%= text_field_tag :search, params[:search], placeholder: "Search Neighborhoods", id: "search-box-field" %>
                 </div>
                 <div class="small-5 columns">
                   <%= submit_tag "Search", name: nil, class: "button radius" %>

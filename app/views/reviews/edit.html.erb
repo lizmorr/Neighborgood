@@ -1,7 +1,7 @@
 <%= form_for [@neighborhood, @review] do |f| %>
-<%= f.label :rating %>
-<%= f.select :rating, Review::RATING, include_blank: "Please Rate" %>
-<%= rating_for @neighborhood, "neighborhood", disable_after_rate: false %>
+  <%= f.label :rating %>
+  <%= f.hidden_field :rating %>
+  <div id="star-ratings"></div>
 
   <%= f.label :description, "Review" %>
   <%= f.text_area :description %>

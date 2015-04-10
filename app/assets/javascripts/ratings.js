@@ -4,6 +4,7 @@ function buildStarIcon(index){
   return $("<a>")
   .attr("href", "#")
   .attr("data-rating", index + 1)
+  .attr("id", "star-" + (index + 1))
   .html($icon);
 }
 
