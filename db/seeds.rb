@@ -7,7 +7,7 @@
 #   Mayor.create(name: "Emanuel", city: cities.first)
 if Rails.env.development?
   User.find_or_create_by(email: "Test@Fake.com") do |user|
-    user.name = "Master"
+    user.username = "Master"
     user.password = "password123"
     user.role = "admin"
     # user.password_confirmation = "password123"
@@ -15,7 +15,7 @@ if Rails.env.development?
 
   15.times do
     user = User.new(
-      name: Faker::Name.name,
+      username: Faker::Name.name,
       email: Faker::Internet.email,
       password: Faker::Internet.password,
       sign_in_count: 0

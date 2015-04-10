@@ -15,7 +15,7 @@ feature 'user registers', %Q{
   scenario 'provide valid registration information' do
     visit new_user_registration_path
 
-    fill_in 'Name', with: "John P. Example"
+    fill_in 'Username', with: "johnexample42"
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
@@ -31,7 +31,7 @@ feature 'user registers', %Q{
   scenario 'provide valid registration information without image' do
     visit new_user_registration_path
 
-    fill_in 'Name', with: "John P. Example"
+    fill_in 'Username', with: "johnexample42"
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
@@ -59,7 +59,7 @@ feature 'user registers', %Q{
   scenario 'email is not unique' do
     visit new_user_registration_path
 
-    fill_in 'Name', with: "John P. Example"
+    fill_in 'Username', with: "johnexample42"
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
@@ -69,7 +69,7 @@ feature 'user registers', %Q{
 
     visit new_user_registration_path
 
-    fill_in 'Name', with: "John P. Example"
+    fill_in 'Username', with: "johnexample42"
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'

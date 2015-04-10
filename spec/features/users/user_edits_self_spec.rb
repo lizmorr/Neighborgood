@@ -12,6 +12,7 @@ feature "user edits self", %(
 
     visit edit_user_registration_path
 
+    fill_in 'Username', with: "user123"
     fill_in 'Current password', with: user.password
     attach_file("user_image",
       "#{Rails.root}/spec/fixtures/Stonehenge.jpg")
@@ -27,11 +28,14 @@ feature "user edits self", %(
 
     visit edit_user_registration_path
 
+    fill_in 'Username', with: ""
     fill_in 'Email', with: "A@B"
     fill_in 'Password', with: "1"
     click_button 'Update'
 
-    expect(page).to have_content("4 errors prohibited this user from being saved:")
+    expect(page).to have_content("5 errors prohibited this \
+    user from being saved:")
+    expect(page).to have_content("Username can't be blank")
     expect(page).to have_content("Email is invalid")
     expect(page).to have_content("Password confirmation doesn't match Password")
     expect(page).to have_content("Current password can't be blank")
