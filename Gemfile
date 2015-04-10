@@ -15,6 +15,7 @@ gem 'fog'
 gem 'foundation-icons-sass-rails'
 gem 'dotenv-rails'
 gem "font-awesome-sass"
+gem 'mandrill-api'
 
 group :development, :test do
   gem 'spring'

@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
-      ReviewNotifier.new_review(@review).deliver_later
+      ReviewNotifier.new_review(@review).deliver
       flash[:notice] = "Review added successfully."
       redirect_to neighborhood_path(@neighborhood)
     else
