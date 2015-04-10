@@ -7,10 +7,8 @@ class Neighborhood < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true, length: { in: 4..30 }
   validates :location, presence: true, inclusion: { in: LOCATIONS }
-  validates :description, length: { in: 2..40 }, allow_blank: true
+  validates :description, length: { in: 2..600 }, allow_blank: true
   validates :user, presence: true
-
-  ratyrate_rateable 'neighborhood'
 
   def editable_by?(user)
     user == self.user

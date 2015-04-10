@@ -5,7 +5,6 @@
 </fieldset>
 
 <div class="row">
-  <%= paginate @neighborhoods %>
   <% @neighborhoods.each do |neighborhood| %>
     <div class="large-4 columns" id="neighborhood_list">
       <%= image_tag neighborhood.image.url, size: "300x300"  %>
@@ -15,4 +14,23 @@
       </div>
     </div>
   <% end %>
+  <%= paginate @neighborhoods %>
+</div>
+
+<div class="row">
+  <div class="small-9 small-offset-1 columns" id="contributors">
+    <div class="small-4 columns">
+        <p>
+          We produced this site during our 10 weeks at Launch Academy.
+        </p>
+      </div>
+      <div class="small-5 columns">
+        <ul class="inline-list" id="pics">
+          <li><%= image_tag 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAANcAAAAJDM2Nzg1MTAwLTdmYzEtNDcwMC04ODU4LWYzYTAxZTQ3NTEwOQ.jpg', size: "100x100" %></li>
+          <li><%= image_tag 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAI9AAAAJDZhZjRhNmM2LWNkYTEtNDc5ZS1iNzc0LWFjZjFmOTlmMTk0ZQ.jpg', size: "100x100" %></li>
+          <li><%= image_tag 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAKjAAAAJDBkODUzNDc2LWY1N2UtNDU5Yi05NWQxLWUzNGQxNTNiNjM4NQ.jpg', size: "100x100" %></li>
+          <li><%= image_tag 'https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/005/0b9/00f/0bcc8b0.jpg', size: "100x100" %></li>
+        </ul>
+      </div>
+    </div>
 </div>

@@ -12,10 +12,9 @@ gem 'foundation-rails', '5.5.1.0'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'fog'
-gem 'ratyrate'
-gem 'to_words'
 gem 'foundation-icons-sass-rails'
 gem 'dotenv-rails'
+gem "font-awesome-sass"
 
 group :development, :test do
   gem 'spring'

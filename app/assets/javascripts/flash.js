@@ -3,4 +3,3 @@ $(function() {
       $(this).delay(2500).fadeOut();
    });
 });
-

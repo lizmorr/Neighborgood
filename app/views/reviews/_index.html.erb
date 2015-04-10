@@ -2,20 +2,18 @@
 <% @reviews.each do |review| %>
   <div class="row">
     <div class="rating">
+      
+      <ul class="inline-list" id="review_details">
+        <li class="profile-picture"><%= image_tag review.user.image.url, size: "60x60" %></li>
+        <li class="review_description"><%= review.description %></li>
+      </ul>
 
-    <div class="rating_details" id="rating.id">
-      <p>
-        <%= review.rating %>
-        <% review.rating.times do %>
-         <%= image_tag("star-on.png") %>
-        <% end %>
-      </p>
-      <div class="review_details">
-        <p>
-          <%= review.description %>
-          <%= review.user.email %>
-        </p>
-      </div>
+      <ul class="inline-list">
+         <% review.rating.times do %>
+         <li><%= image_tag("star-on.png") %></li>
+         <% end %>
+      </ul>
+
       <ul class="inline-list" id="vote_links">
         <% if current_user %>
           <% if review.voted_on_by?(current_user) && review.find_vote(current_user).value == 0 %>
@@ -31,7 +29,7 @@
         <% end %>
       </ul>
 
-      <p>Votes: <%= review.total_votes %></p>
+      <p id="vote_count">Votes: <%= review.total_votes %></p>
 
       <ul class="inline-list" id="edit_links">
         <% if review.editable_by?(current_user) %>
@@ -41,7 +39,6 @@
           <li><%= link_to "Delete Review", neighborhood_review_path(review.neighborhood, review), method: :delete %></li>
         <% end %>
       </ul>
-    </div>
     </div>
   </div>
 <% end %>

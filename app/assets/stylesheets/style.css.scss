@@ -1,6 +1,43 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400);
 @import 'foundation-icons';
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.fa-star-o {
+  font-size: 2em;
+}
+
+.fa-star {
+  font-size: 2em;
+  color: #41A5B2;
+}
+
+.button {
+  font-family: Lato;
+  background-color: #41A5B2;
+}
+.row .row {
+  width: 100%;
+}
+
+.top-bar .left .fi-magnifying-glass {
+  font-size: 2.5em;
+  color: white;
+}
+
+.top-bar .left #search-box .button {
+  background-color: #41A5B2;
+}
+
+.top-bar .left #search-box {
+  margin-top: .5em;
+  font-family: Lato;
+}
+
+.top-bar .left #search-icon {
+  margin-bottom: 10px;
+}
 
 nav.top-bar {
   height: 4em;
@@ -111,19 +148,29 @@ fieldset.tagline {
 }
 
 .rating {
-  border: .15em solid #41A5B2;
-  padding: .7em;
-  margin: .8em;
-  -moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+  border-bottom: .15em solid #41A5B2;
+  padding-top: 1em;
 }
 
 .rating ul {
   list-style-type: none;
 }
 
-.row #neighborhood_info {
-  float: left;
+.rating #review_details img {
+  border-radius: 35px;
+}
+
+.rating #vote_count {
+  font-family: Pacifico;
+}
+
+#ratings_list {
+  padding: 2em;
+}
+
+#neighborhood_header #neighborhood_info {
+  font-size: 1em;
+  padding-top: 8.4em;
 }
 
 #neighborhood {
@@ -131,14 +178,36 @@ fieldset.tagline {
   font-family: Lato;
 }
 
+#neighborhood .one_neighborhood {
+  width: 100%;
+}
+
 #neighborhood h1 {
   font-family: Lato;
 }
 
-#neighborhood_info {
-  padding-top: 4em;
-}
-
 #ratings_list {
   padding-top: 3em;
+}
+
+#contributors {
+  border: #B23875 solid .2em;
+  border-radius: 1em;
+  margin-top: 4em;
+  margin-bottom: 4em;
+  height: 20em;
+  background-image: url("https://www.georgeglazer.com/maps/pictorialmap/images/gar-bostondet.JPG");
+}
+
+#contributors p {
+  margin-left: 1em;
+  margin-top: 1em;
+  font-family: Lato;
+  color: black;
+}
+
+#contributors #pics img {
+  border-radius: 35px;
+  border: #B23875 solid .2em;
+  margin-top: 2em;
 }
