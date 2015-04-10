@@ -97,8 +97,15 @@ fieldset.tagline {
   padding: 1em;
 }
 
-#neighborhood_list img {
-  border-radius: 10px;
+#neighborhood-list {
+  img {
+    border-radius: 10px;
+    filter: alpha(opacity=67);
+    opacity: 0.67;
+  }
+  a {
+    color: #ff1c8e;
+  }
 }
 
 .columns {
