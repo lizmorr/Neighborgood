@@ -12,16 +12,16 @@ function buildStarList(starNum){
   var starList = [];
 
   for(var i = 0; i < starNum; i++){
-    starList.push(buildStarIcon(i));
-  }
-  return starList
+    starList.push(buildStarIcon(i))
+  };
+  return starList;
 }
 
 function handleStarClick(event) {
   event.preventDefault();
 
-  var $starClicked = $(event.currentTarget)
-  var rating = $starClicked.attr("data-rating")
+  var $starClicked = $(event.currentTarget);
+  var rating = $starClicked.attr("data-rating");
 
   $starClicked.prevAll("a").andSelf().find("i")
     .removeClass("fa-star-o")
@@ -31,12 +31,12 @@ function handleStarClick(event) {
     .removeClass("fa-star")
     .addClass("fa-star-o");
 
-  var $hidden = $("#review_rating")
-  $hidden.val(rating)
+  var $hidden = $("#review_rating");
+  $hidden.val(rating);
 }
 
 
 $(function(){
-  $("#star-ratings").append(buildStarList(5))
+  $("#star-ratings").append(buildStarList(5));
   $("#star-ratings a").on("click", handleStarClick);
 });
