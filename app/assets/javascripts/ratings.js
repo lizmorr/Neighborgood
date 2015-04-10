@@ -12,8 +12,8 @@ function buildStarList(starNum){
   var starList = [];
 
   for(var i = 0; i < starNum; i++){
-    starList.push(buildStarIcon(i))
-  };
+    starList.push(buildStarIcon(i));
+  }
   return starList;
 }
 

@@ -192,23 +192,28 @@ fieldset.tagline {
 
 #contributors {
   border: #B23875 solid .2em;
-  border-radius: 1em;
+  border-radius: .4em;
   margin-top: 4em;
   margin-bottom: 4em;
   height: 20em;
-  background-image: url("https://www.georgeglazer.com/maps/pictorialmap/images/gar-bostondet.JPG");
+  background-image: url("boston.png");
 }
 
 #contributors p {
-  margin-left: 1em;
-  margin-top: 2em;
-  font-family: Lato;
-  color: black;
+  text-align: center;
+  font-size: 3em;
+  font-family: Pacifico;
+  color: #000000;
+  margin-top: 1em;
 }
 
 #contributors #pics img {
   border-radius: 60px;
   border: #B23875 solid .2em;
-  margin-top: 2em;
-  position: relative;
+}
+
+#contributors #pics {
+  width: 100%;
+  margin-top: 1em;
+  margin-left: 11em;
 }
