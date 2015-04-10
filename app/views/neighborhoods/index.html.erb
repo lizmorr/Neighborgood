@@ -9,7 +9,7 @@
 <div class="row">
   <% @neighborhoods.each do |neighborhood| %>
     <div class="large-4 columns" id="neighborhood-list">
-      <%= image_tag neighborhood.image.url, size: "300x300"  %>
+      <%= image_tag neighborhood.image.url, size: "300x300" %>
       <div class="row labelrow">
         <div class="small-12 columns"><%= link_to neighborhood.name, neighborhood_path(neighborhood) %></div>
         <div class="small-12 columns"><%= neighborhood.location.upcase %></div>
